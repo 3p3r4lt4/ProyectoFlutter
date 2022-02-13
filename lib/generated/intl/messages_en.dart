@@ -24,12 +24,12 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "additional": MessageLookupByLibrary.simpleMessage("Adicionales"),
         "consumption": MessageLookupByLibrary.simpleMessage("Consumo"),
-        "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "email": MessageLookupByLibrary.simpleMessage("Correo"),
         "internet": MessageLookupByLibrary.simpleMessage("Internet"),
         "myQuoter": MessageLookupByLibrary.simpleMessage("Mi Cotizador"),
         "needAnAccount":
-            MessageLookupByLibrary.simpleMessage("Need An Account"),
-        "password": MessageLookupByLibrary.simpleMessage("Password"),
+            MessageLookupByLibrary.simpleMessage("Necesita una cuenta?"),
+        "password": MessageLookupByLibrary.simpleMessage("Contraseña"),
         "price": MessageLookupByLibrary.simpleMessage("Precio"),
         "quote": MessageLookupByLibrary.simpleMessage("Cotizar"),
         "rates": MessageLookupByLibrary.simpleMessage("Tarifas"),

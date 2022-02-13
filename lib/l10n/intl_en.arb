@@ -1,9 +1,9 @@
 {
     "required": "Campo requerido",
-    "email": "Email",
-    "password": "Password",
+    "email": "Correo",
+    "password": "Contraseña",
     "signIn": "Login",
-    "needAnAccount": "Need An Account",
+    "needAnAccount": "Necesita una cuenta?",
     "signUp": "Sign up",
     "myQuoter": "Mi Cotizador",
     "quote": "Cotizar",

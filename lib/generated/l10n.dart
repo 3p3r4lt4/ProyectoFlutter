@@ -60,20 +60,20 @@ class S {
     );
   }
 
-  /// `Email`
+  /// `Correo`
   String get email {
     return Intl.message(
-      'Email',
+      'Correo',
       name: 'email',
       desc: '',
       args: [],
     );
   }
 
-  /// `Password`
+  /// `Contraseña`
   String get password {
     return Intl.message(
-      'Password',
+      'Contraseña',
       name: 'password',
       desc: '',
       args: [],
@@ -90,10 +90,10 @@ class S {
     );
   }
 
-  /// `Need An Account`
+  /// `Necesita una cuenta?`
   String get needAnAccount {
     return Intl.message(
-      'Need An Account',
+      'Necesita una cuenta?',
       name: 'needAnAccount',
       desc: '',
       args: [],
