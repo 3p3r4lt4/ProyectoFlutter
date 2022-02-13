@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:flxtech/presentation/pages/auth/signin_page.dart';
+
 void main() {
   runApp(const FLXTech());
 }
@@ -9,8 +11,8 @@ class FLXTech extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
+    return MaterialApp(
+      home: SignInPage(),
     );
   }
 }
