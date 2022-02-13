@@ -138,21 +138,26 @@ class CustomTextFormField extends StatelessWidget {
 
     return Stack(
       children: [
-        Material(
-            borderRadius: BorderRadius.circular(borderRadius),
-            color: Colors.transparent,
-            child: Container(
-              child: _buildInputTextFormfield(),
-              width: width,
-              decoration: BoxDecoration(
-                color: fieldColor ?? whiteColor,
-                border: Border.all(
-                  width: 0.1,
-                  color: fieldBorderColor ?? grayColor,
+        Container(
+          margin: const EdgeInsets.symmetric(horizontal: MARGIN_SIZE_LARGE, vertical: MARGIN_SIZE_SMALL),
+          child: Material(
+              elevation: 2,
+              borderRadius: BorderRadius.circular(borderRadius),
+              color: Colors.white,
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: PADDING_SIZE_DEFAULT),
+                child: _buildInputTextFormfield(),
+                width: width,
+                decoration: BoxDecoration(
+                  color: fieldColor ?? whiteColor,
+                  border: Border.all(
+                    width: 0.05,
+                    color: fieldBorderColor ?? grayColor,
+                  ),
+                  borderRadius: BorderRadius.circular(borderRadius),
                 ),
-                borderRadius: BorderRadius.circular(borderRadius),
-              ),
-              margin: const EdgeInsets.symmetric(vertical: MARGIN_SIZE_EXTRA_SMALL, horizontal: MARGIN_SIZE_EXTRA_SMALL),
+                margin: const EdgeInsets.all(0),
+            ),
           ),
         ),
         
