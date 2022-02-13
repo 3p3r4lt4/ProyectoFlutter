@@ -16,6 +16,7 @@ class ScaffoldContainer extends StatelessWidget {
     this.toltip = 'help',
     this.rightIcon = Icons.help_outline_rounded,
     this.titleColor = whiteColor,
+    this.isWavefooter = false,
     required this.body,
   });
   final bool isCustomAppBar;
@@ -29,6 +30,7 @@ class ScaffoldContainer extends StatelessWidget {
   final Color titleColor;
   final double barHeight = BAR_HEIGHT;
   final Widget body;
+  final bool isWavefooter;
 
   PreferredSize _buildCustomAppBar(BuildContext context) {
     final double heightStatusBar = MediaQuery.of(context).padding.top;
@@ -90,7 +92,52 @@ class ScaffoldContainer extends StatelessWidget {
                 ),
               ],
             )
-          : SafeArea(child: body),
+          : SafeArea(
+            child: isWavefooter
+              ? Container(
+                color: whiteColor,
+                height: double.maxFinite,
+                width: double.maxFinite,
+                child: CustomPaint(
+                  painter: _WaveFooter(),
+                  child: body,
+                ),
+              )
+              : body,
+          ),
     );
   }
+}
+
+class _WaveFooter extends CustomPainter {
+  const _WaveFooter();
+
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    
+    final Paint paint = Paint()
+      ..color = primaryColor
+      // ..blendMode = BlendMode.hardLight
+      ..isAntiAlias = true
+      ..style = PaintingStyle.fill
+      ..strokeWidth = 20;
+
+    final Path path = Path()
+      ..lineTo(0, size.height*0.75)
+      ..quadraticBezierTo(size.width*0.25, size.height*0.85, size.width*0.5, size.height*0.75)
+      ..quadraticBezierTo(size.width*0.75, size.height*0.65, size.width, size.height*0.75)
+      ..lineTo(size.width, size.height)
+      ..lineTo(0.0, size.height);
+
+    canvas.drawPath(path, paint);
+    
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return true;
+  }
+
+  
 }
