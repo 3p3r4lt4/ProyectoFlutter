@@ -219,6 +219,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Instalaciones`
+  String get installations {
+    return Intl.message(
+      'Instalaciones',
+      name: 'installations',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bolsa de Minutos`
+  String get bagOfMinutes {
+    return Intl.message(
+      'Bolsa de Minutos',
+      name: 'bagOfMinutes',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -15,5 +15,7 @@
     "rates": "Tarifas",
     "total": "Total",
     "price": "Precio",
-    "subTotal": "Sub Total"
+    "subTotal": "Sub Total",
+    "installations": "Instalaciones",
+    "bagOfMinutes": "Bolsa de Minutos"
 }
