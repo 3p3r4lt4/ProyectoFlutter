@@ -117,7 +117,7 @@ class _WaveFooter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     
     final Paint paint = Paint()
-      ..color = primaryColor
+      ..color = purpleColor
       // ..blendMode = BlendMode.hardLight
       ..isAntiAlias = true
       ..style = PaintingStyle.fill
@@ -125,8 +125,8 @@ class _WaveFooter extends CustomPainter {
 
     final Path path = Path()
       ..lineTo(0, size.height*0.75)
-      ..quadraticBezierTo(size.width*0.25, size.height*0.85, size.width*0.5, size.height*0.75)
-      ..quadraticBezierTo(size.width*0.75, size.height*0.65, size.width, size.height*0.75)
+      ..quadraticBezierTo(size.width*0.25, size.height*0.775, size.width*0.5, size.height*0.75)
+      ..quadraticBezierTo(size.width*0.75, size.height*0.725, size.width, size.height*0.75)
       ..lineTo(size.width, size.height)
       ..lineTo(0.0, size.height);
 
