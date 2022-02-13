@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
 
 import 'package:flxtech/core/theme/colors_app.dart';
 import 'package:flxtech/core/values/dimensions.dart';
 import 'package:flxtech/generated/l10n.dart';
+import 'package:flxtech/presentation/controllers/auth/auth_controller.dart';
 import 'package:flxtech/presentation/widgets/buttons/custom_text_button.dart';
 import 'package:flxtech/presentation/widgets/buttons/theme_button.dart';
 import 'package:flxtech/presentation/widgets/custom_text_formfield.dart';
@@ -39,9 +41,11 @@ class SignInPage extends StatelessWidget {
               rightIcon: Icons.remove_red_eye_outlined,
             ),
             Expanded(child: const SizedBox()),
-            ThemeButton(
-              onPress: () => null,
-              title: l10n.signIn,
+            Consumer<AuthController>(
+              builder: (context, controller, _) => ThemeButton(
+                  onPress: () => controller.handleSignIn(context),
+                  title: l10n.signIn,
+                ),
             ),
             Expanded(child: const SizedBox()),
             Container(
@@ -78,7 +82,7 @@ class SignInPage extends StatelessWidget {
                     title: l10n.signUp,
                     onPress: () => null,
                     buttonColor: whiteColor,
-                    textColor: primaryColor,
+                    textColor: purpleColor,
                   ),
                 ],
               ),
