@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:provider/provider.dart';
 
 import 'package:flxtech/generated/l10n.dart';
+import 'package:flxtech/core/router/pages.dart';
+import 'package:flxtech/presentation/controllers/auth/auth_controller.dart';
+import 'package:flxtech/presentation/controllers/quote/quoter_controller.dart';
 import 'package:flxtech/presentation/pages/auth/signin_page.dart';
 
 void main() {
@@ -13,15 +17,22 @@ class FLXTech extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: SignInPage(),
-      localizationsDelegates: [
-        S.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<AuthController>(create: (_) => AuthController()),
+        ChangeNotifierProvider<QuoteController>(create: (_) => QuoteController()),
       ],
-      supportedLocales: S.delegate.supportedLocales,
+      child: MaterialApp(
+        home: SignInPage(),
+        routes: Pages.routes,
+        localizationsDelegates: [
+          S.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+        ],
+        supportedLocales: S.delegate.supportedLocales,
+      ),
     );
   }
 }
