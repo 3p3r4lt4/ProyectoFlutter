@@ -1,0 +1,19 @@
+{
+    "required": "Campo requerido",
+    "email": "Email",
+    "password": "Password",
+    "signIn": "Login",
+    "needAnAccount": "Need An Account",
+    "signUp": "Sign up",
+    "myQuoter": "Mi Cotizador",
+    "quote": "Cotizar",
+    "services": "Servicios",
+    "additional": "Adicionales",
+    "server": "Servidor",
+    "internet": "Internet",
+    "consumption": "Consumo",
+    "rates": "Tarifas",
+    "total": "Total",
+    "price": "Precio",
+    "subTotal": "Sub Total"
+}
