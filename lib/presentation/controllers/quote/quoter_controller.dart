@@ -6,9 +6,21 @@ import 'package:flxtech/data/local/dictionaries.dart';
 
 class QuoteController extends ChangeNotifier {
 
-  //* Quoter
+  ///* Quoter
 
-  //Bag of minutes quotes
+  //* Services
+  Map<String, Map<String, dynamic>> servicesQuote = Map();
+
+  void loadServicesQuoteInitial() {
+    servicesQuote.addAll(serverWithFeedMap);
+    for (var i = 0; i < servicesQuote.length; i++) {
+      final String key = servicesQuote.keys.elementAt(i);
+      servicesQuote[key]!['quantity'] = 0;
+      servicesQuote[key]!['price'] = 0.00;
+    }
+  }
+
+  //* Bag of minutes quotes
   Map<String, Map<String, dynamic>> bagOfMinutesQuote = Map();
   double subTotalBagOfMinutesQuote = 0.00;
 
