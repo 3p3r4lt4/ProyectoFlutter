@@ -1,0 +1,1 @@
+double doubleToAsFixedDecimals(double value, {int numberDecimals = 2}) => double.parse(value.toStringAsFixed(numberDecimals));
