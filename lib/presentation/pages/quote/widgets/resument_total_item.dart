@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:flxtech/core/style/text_style_app.dart';
 import 'package:flxtech/core/theme/colors_app.dart';
 import 'package:flxtech/core/values/dimensions.dart';
@@ -20,10 +21,7 @@ class ResumenTotalItem extends StatelessWidget {
       children: [
         Text(
           title,
-          style: TextStyleApp.b1().copyWith(
-            color: darkColor,
-            fontWeight: FontWeight.bold,
-          ),
+          style: TextStyleApp.b1(),
         ),
         Container(
           margin: const EdgeInsets.only(left: MARGIN_SIZE_SMALL, right: MARGIN_SIZE_EXTRA_LARGE),
