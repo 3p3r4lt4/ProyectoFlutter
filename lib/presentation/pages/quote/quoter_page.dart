@@ -108,17 +108,19 @@ class QuoterPage extends StatelessWidget {
               ),
               Consumer<QuoteController>(
                 builder: (context, controller, _) {
-                  return Column(
-                    children: List.generate(controller.servicesQuote.length, (index) {
-                      final String key = controller.servicesQuote.keys.elementAt(index);
-                      final Map<String, dynamic> service = controller.servicesQuote[key]!;
-                      return QuoterServerItem(
-                        key,
-                        service: service,
-                        controller: controller,
-                      );
-                    }),
-                  );
+                  return controller.isHideServices
+                    ? Column(
+                        children: List.generate(controller.servicesQuote.length, (index) {
+                          final String key = controller.servicesQuote.keys.elementAt(index);
+                          final Map<String, dynamic> service = controller.servicesQuote[key]!;
+                          return QuoterServerItem(
+                            key,
+                            service: service,
+                            controller: controller,
+                          );
+                        }),
+                      )
+                    : const SizedBox(height: MARGIN_SIZE_SMALL);
                 }
               ),
               _TitleQuoterItem(l10n.installations),
