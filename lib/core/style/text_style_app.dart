@@ -34,7 +34,7 @@ abstract class TextStyleApp {
   );
   static TextStyle caption() => TextStyle(
     color: darkColor, //categories
-    fontSize: 14,
+    fontSize: 12,
     height: 1,
   );
 }
