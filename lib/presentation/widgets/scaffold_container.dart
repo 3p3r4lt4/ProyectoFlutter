@@ -12,7 +12,7 @@ class ScaffoldContainer extends StatelessWidget {
     this.isCustomFloatingAppBar = false,
     this.rightPressed,
     this.haveReturn = true,
-    this.colorAppBar = primaryColor,
+    this.colorAppBar = purpleColor,
     this.toltip = 'help',
     this.rightIcon = Icons.help_outline_rounded,
     this.titleColor = whiteColor,
@@ -43,9 +43,12 @@ class ScaffoldContainer extends StatelessWidget {
               alignment: Alignment.center,
               child: Text(
                 title,
-                style: TextStyleApp.b1(),
+                style: TextStyleApp.b1().copyWith(
+                  color: titleColor,
+                )
               ),
-              color: colorAppBar),
+              color: colorAppBar,
+          ),
           haveReturn
               ? Positioned(
                   left: MARGIN_SIZE_EXTRA_SMALL,

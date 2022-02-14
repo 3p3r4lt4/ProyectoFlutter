@@ -28,6 +28,7 @@
   const double ICON_SIZE_EXTRA_SMALL = 12.0;
   const double ICON_SIZE_SMALL = 18.0;
   const double ICON_SIZE_DEFAULT = 24.0;
+  const double ICON_SIZE_MEDIUM = 28.0;
   const double ICON_SIZE_LARGE = 32.0;
   const double ICON_SIZE_EXTRA_LARGE = 40.0;
   const double ICON_SIZE_XXLARGE = 80.0;

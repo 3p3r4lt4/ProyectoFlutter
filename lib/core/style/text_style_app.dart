@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flxtech/core/theme/colors_app.dart';
 
-class TextStyleApp {
+abstract class TextStyleApp {
   static TextStyle h4() => TextStyle(
     color: darkColor,
     fontSize: 28,
