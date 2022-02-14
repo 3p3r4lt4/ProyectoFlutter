@@ -53,12 +53,9 @@ class ThemeDropDown extends StatelessWidget {
           onChanged: onChanged,
           items: listItems,
           underline: const SizedBox(),
-          icon: RotatedBox(
-            quarterTurns: 0,
-            child: Icon(
-              Icons.arrow_forward_ios_sharp,
-              size: ICON_SIZE_SMALL,
-            ),
+          icon: Icon(
+            Icons.arrow_forward_ios_sharp,
+            size: ICON_SIZE_SMALL,
           ),
         ),
       ),
