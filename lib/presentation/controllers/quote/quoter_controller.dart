@@ -2,12 +2,75 @@ import 'package:flutter/material.dart';
 
 import 'package:flxtech/core/env/environment.dart';
 import 'package:flxtech/core/helpers/double_to_as_fixed_decimals.dart';
+import 'package:flxtech/core/helpers/pdf/generated_pdf.dart';
+import 'package:flxtech/core/helpers/pdf/pdf_service.dart';
 import 'package:flxtech/data/local/dictionaries.dart';
+import 'package:flxtech/data/models/quoter_model.dart';
+import 'package:flxtech/generated/l10n.dart';
 
 class QuoteController extends ChangeNotifier {
 
+  S _l10n = S.current;
   ///* Quoter
-  ///
+  ///Pdf generated
+  Quoter? quoterPdf;
+  List<List<dynamic>>? tempPDF;
+  Future _loadResumenToPpdf() async {
+    tempPDF = [
+      [
+        _l10n.numberOfTelephoneToBeInstalled,
+        equipmentToInstallMap['price']
+      ],
+      [
+          _l10n.bagOfMinutes,
+          subTotalBagOfMinutesQuote,
+      ],
+        [
+          _l10n.services,
+          subTotalServicesQuote,
+      ],
+        [
+          _l10n.numberOfTelephoneToBeInstalled,
+          aditionalIPMap['price'],
+      ],
+        [
+          _l10n.totalPerMonth,
+          totalPriceQuoter - equipmentToInstallMap['price'],
+      ],
+    ];
+    quoterPdf = Quoter(
+      items: [
+        QuoterItem(
+          description: _l10n.numberOfTelephoneToBeInstalled,
+          price: equipmentToInstallMap['price'],
+        ),
+        QuoterItem(
+          description: _l10n.bagOfMinutes,
+          price: subTotalBagOfMinutesQuote,
+        ),
+        QuoterItem(
+          description: _l10n.services,
+          price: subTotalServicesQuote,
+        ),
+        QuoterItem(
+          description: _l10n.numberOfTelephoneToBeInstalled,
+          price: aditionalIPMap['price'],
+        ),
+        QuoterItem(
+          description: _l10n.totalPerMonth,
+          price: totalPriceQuoter - equipmentToInstallMap['price'],
+        ),
+      ]
+    );
+  }
+
+  Future handleGeneratedPDF() async {
+    await _loadResumenToPpdf();
+    final pdfFile = await PdfQuoterApi.generate(quoterPdf!, tempPDF!);
+    PdfService.openFile(pdfFile);
+  } 
+
+  ///Actions widgets
   double totalPriceQuoter = 0.00;
 
   //* Aditional
