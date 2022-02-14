@@ -8,6 +8,7 @@ import 'package:flxtech/core/helpers/double_to_as_fixed_decimals.dart';
 import 'package:flxtech/core/style/text_style_app.dart';
 import 'package:flxtech/core/values/dimensions.dart';
 import 'package:flxtech/generated/l10n.dart';
+import 'package:flxtech/presentation/widgets/buttons/theme_button.dart';
 import 'package:flxtech/presentation/pages/quote/widgets/quoter_server_item.dart';
 import 'package:flxtech/presentation/pages/quote/widgets/quoter_custom_item.dart';
 import 'package:flxtech/presentation/controllers/quote/quoter_controller.dart';
@@ -226,7 +227,14 @@ class QuoterPage extends StatelessWidget {
               ),
               const Divider(),
               const SizedBox(height: MARGIN_SIZE_DEFAULT),
-              
+              Consumer<QuoteController>(
+                builder: (context, controller, _) {
+                  return ThemeButton(
+                    title: l10n.quote, 
+                    onPress: () async => await controller.handleGeneratedPDF()
+                  );
+                }
+              ),
             ],
           ),
         ],
