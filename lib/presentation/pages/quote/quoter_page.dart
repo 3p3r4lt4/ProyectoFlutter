@@ -61,6 +61,7 @@ class QuoterPage extends StatelessWidget {
       rightIcon: Icons.help_outline_outlined,
       rightPressed: () => print('help'),
       body: ListView(
+        physics: const BouncingScrollPhysics(),
         children: [
           Consumer<QuoteController>(
             builder: (context, controller, _) {
@@ -210,11 +211,22 @@ class QuoterPage extends StatelessWidget {
                             style: TextStyleApp.b1(),
                           ),
                       ),
-                      const Divider(),
                     ],
                   );
                 }
               ),
+              const Divider(),
+              Consumer<QuoteController>(
+                builder: (context, controller, _) {
+                  return ResumenTotalItem(
+                    l10n.total, 
+                    value: doubleToAsFixedDecimals(controller.totalPriceQuoter).toString(),
+                  );
+                }
+              ),
+              const Divider(),
+              const SizedBox(height: MARGIN_SIZE_DEFAULT),
+              
             ],
           ),
         ],
