@@ -8,6 +8,18 @@ class QuoteController extends ChangeNotifier {
 
   ///* Quoter
 
+  //* Installations
+  Map<String, dynamic> equipmentToInstallMap = {
+    'quantity' : 0,
+    'price': 0.00
+  };
+  void loadInstallationsQuote(String value) {
+    final int intValue = int.parse(value);
+    this.equipmentToInstallMap['quantity'] = intValue;
+    this.equipmentToInstallMap['price'] = intValue*EQUIPMENT_TO_INSTALL_PRICE;
+    notifyListeners();
+  }
+
   //* Services
   Map<String, Map<String, dynamic>> servicesQuote = Map();
   double subTotalServicesQuote = 0.00;
