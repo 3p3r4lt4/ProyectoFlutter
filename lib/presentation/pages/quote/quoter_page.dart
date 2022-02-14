@@ -107,11 +107,7 @@ class QuoterPage extends StatelessWidget {
                 const SizedBox(height: MARGIN_SIZE_SMALL),
                 ResumenTotalItem(
                   l10n.subTotal, 
-                  value: '$CURRENCY_TYPE_SYMBOL  ${controller.bagOfMinutesQuote.entries
-                    .fold(
-                      0.0, (double previous, next) 
-                        => (previous + next.value['price'])
-                    )}'
+                  value: '$CURRENCY_TYPE_SYMBOL  ${doubleToAsFixedDecimals(controller.subTotalBagOfMinutesQuote)}'
                 )
               ],
             ),
