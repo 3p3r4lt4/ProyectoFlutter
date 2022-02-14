@@ -1,4 +1,10 @@
+import 'package:flxtech/core/env/environment.dart';
+import 'package:flxtech/generated/l10n.dart';
+  
+S _l10n = S.current;
+  //* Discounts feed in percentage bag of minutes
   // 3%	4%	5%	7%	8%	9%	10%	11%	12%	13%	15%	20%
+
 Map<String, double>  percentageDiscountMap = {
   '0': 0.03,
   '1': 0.04,
@@ -14,6 +20,7 @@ Map<String, double>  percentageDiscountMap = {
   '11': 0.20
 };
 
+  //*Feed bag of minutes
 //  S/.0.0459 S/.0.0954 S/.0.1369 S/.0.9350 S/.0.2499 S/.0.4921 S/.1.0000 S/.1.5957 S/.6.3500 S/.10.0000
 // Fijo Local	Fijo Nacional	Móviles	Fijo Rural	LDi1	LDi2	LDi3	LDi4	LDi5	LDi  Espercial
 Map<String, Map<String, dynamic>> nameWithFeedMap = {
@@ -57,4 +64,24 @@ Map<String, Map<String, dynamic>> nameWithFeedMap = {
     'name': 'LDi Espercial',
     'feed': 10.0000
   }
+};
+
+//*Services
+Map<String, Map<String, dynamic>> serverWithFeedMap = {
+  'new_numbers': {
+    'name': _l10n.quantityOfNewNumbers,
+    'feed': NEW_NUMBERS_PRICE
+  },
+  'numbers_for_portability': {
+    'name': _l10n.quantityOfNumbersForPortability,
+    'feed': NUMBERS_FOR_PORTABILITY_PRICE
+  },
+  'annexes': {
+    'name': _l10n.numberOfAnnexes,
+    'feed': QUANTITY_ANNEXES_PRICE
+  },
+  'aditional_channels': {
+    'name': _l10n.numberOfAdditionalChannels,
+    'feed': QUANTITY_CHANNELS_ADITIONAL_PRICE
+  },
 };
