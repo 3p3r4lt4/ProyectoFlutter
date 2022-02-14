@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:flxtech/core/env/environment.dart';
 import 'package:flxtech/core/helpers/double_to_as_fixed_decimals.dart';
 import 'package:flxtech/data/local/dictionaries.dart';
@@ -6,16 +7,16 @@ import 'package:flxtech/data/local/dictionaries.dart';
 class QuoteController extends ChangeNotifier {
 
   //* Quoter
-  Map<String, Map<String, dynamic>> localLandlineMap = Map();
-  Map<String, Map<String, dynamic>> nationalLandlineMap = Map();
-  Map<String, Map<String, dynamic>> ruralLandlineMap = Map();
-  Map<String, Map<String, dynamic>> mobileMap = Map();
-  Map<String, Map<String, dynamic>> ldi1Map = Map();
-  Map<String, Map<String, dynamic>> ldi2Map = Map();
-  Map<String, Map<String, dynamic>> ldi3Map = Map();
-  Map<String, Map<String, dynamic>> ldi4Map = Map();
-  Map<String, Map<String, dynamic>> ldi5Map = Map();
-  Map<String, Map<String, dynamic>> ldiSpecialMap = Map();
+  // Map<String, Map<String, dynamic>> localLandlineMap = Map();
+  // Map<String, Map<String, dynamic>> nationalLandlineMap = Map();
+  // Map<String, Map<String, dynamic>> ruralLandlineMap = Map();
+  // Map<String, Map<String, dynamic>> mobileMap = Map();
+  // Map<String, Map<String, dynamic>> ldi1Map = Map();
+  // Map<String, Map<String, dynamic>> ldi2Map = Map();
+  // Map<String, Map<String, dynamic>> ldi3Map = Map();
+  // Map<String, Map<String, dynamic>> ldi4Map = Map();
+  // Map<String, Map<String, dynamic>> ldi5Map = Map();
+  // Map<String, Map<String, dynamic>> ldiSpecialMap = Map();
 
   //Bag of minutes quotes
   Map<String, Map<String, dynamic>> bagOfMinutesQuote = Map();
@@ -36,7 +37,7 @@ class QuoteController extends ChangeNotifier {
       if (this.rangeFeedMap[i]!['min'] <= intValue && intValue <= this.rangeFeedMap[i]!['max']) {
         this.bagOfMinutesQuote[key]!['feed_price'] = rangeFeedMap[i]!['value_percentage']*bagOfMinutesQuote[key]!['feed'];
         this.bagOfMinutesQuote[key]!['price'] = intValue*bagOfMinutesQuote[key]!['feed_price'];
-      } else {
+      } else if (intValue > this.rangeFeedMap[this.rangeFeedMap.keys.last]!['max']) {
         this.bagOfMinutesQuote[key]!['feed_price'] = MAX_DISCOUNT_RANGE_VALUE*bagOfMinutesQuote[key]!['feed'];
         this.bagOfMinutesQuote[key]!['price'] = intValue*bagOfMinutesQuote[key]!['feed_price'];
       }
