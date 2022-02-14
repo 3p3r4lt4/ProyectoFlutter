@@ -8,6 +8,7 @@ import 'package:flxtech/core/helpers/double_to_as_fixed_decimals.dart';
 import 'package:flxtech/core/style/text_style_app.dart';
 import 'package:flxtech/core/values/dimensions.dart';
 import 'package:flxtech/generated/l10n.dart';
+import 'package:flxtech/presentation/pages/quote/widgets/quoter_server_item.dart';
 import 'package:flxtech/presentation/controllers/quote/quoter_controller.dart';
 import 'package:flxtech/presentation/widgets/scaffold_container.dart';
 import 'package:flxtech/presentation/widgets/theme_dropdown.dart';
@@ -97,12 +98,27 @@ class QuoterPage extends StatelessWidget {
               ],
             ),
           ),
-          
+
           Column(
             children: [
               Consumer<QuoteController>(
                 builder: (context, controller, _) {
                   return _TitleQuoterItem(l10n.services,isHide: controller.isHideServices,handleAction: () => controller.showOrHideServices());
+                }
+              ),
+              Consumer<QuoteController>(
+                builder: (context, controller, _) {
+                  return Column(
+                    children: List.generate(controller.servicesQuote.length, (index) {
+                      final String key = controller.servicesQuote.keys.elementAt(index);
+                      final Map<String, dynamic> service = controller.servicesQuote[key]!;
+                      return QuoterServerItem(
+                        key,
+                        service: service,
+                        controller: controller,
+                      );
+                    }),
+                  );
                 }
               ),
               _TitleQuoterItem(l10n.installations),
