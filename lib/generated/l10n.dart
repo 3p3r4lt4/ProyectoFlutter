@@ -239,6 +239,126 @@ class S {
       args: [],
     );
   }
+
+  /// `Fijo Local`
+  String get localLandline {
+    return Intl.message(
+      'Fijo Local',
+      name: 'localLandline',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fijo Nacional`
+  String get nationalLandline {
+    return Intl.message(
+      'Fijo Nacional',
+      name: 'nationalLandline',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fijo Rural`
+  String get ruralLandline {
+    return Intl.message(
+      'Fijo Rural',
+      name: 'ruralLandline',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Móviles`
+  String get mobiles {
+    return Intl.message(
+      'Móviles',
+      name: 'mobiles',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `LDi1`
+  String get ldi1 {
+    return Intl.message(
+      'LDi1',
+      name: 'ldi1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `LDi2`
+  String get ldi2 {
+    return Intl.message(
+      'LDi2',
+      name: 'ldi2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `LDi3`
+  String get ldi3 {
+    return Intl.message(
+      'LDi3',
+      name: 'ldi3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `LDi4`
+  String get ldi4 {
+    return Intl.message(
+      'LDi4',
+      name: 'ldi4',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `LDi5`
+  String get ldi5 {
+    return Intl.message(
+      'LDi5',
+      name: 'ldi5',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `LDi Especial`
+  String get ldiSpecial {
+    return Intl.message(
+      'LDi Especial',
+      name: 'ldiSpecial',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Destino`
+  String get destination {
+    return Intl.message(
+      'Destino',
+      name: 'destination',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cantidad`
+  String get quantity {
+    return Intl.message(
+      'Cantidad',
+      name: 'quantity',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

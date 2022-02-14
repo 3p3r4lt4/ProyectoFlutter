@@ -17,5 +17,17 @@
     "price": "Precio",
     "subTotal": "Sub Total",
     "installations": "Instalaciones",
-    "bagOfMinutes": "Bolsa de Minutos"
+    "bagOfMinutes": "Bolsa de Minutos",
+    "localLandline": "Fijo Local",
+    "nationalLandline": "Fijo Nacional",
+    "ruralLandline": "Fijo Rural",
+    "mobiles": "Móviles",
+    "ldi1": "LDi1",
+    "ldi2": "LDi2",
+    "ldi3": "LDi3",
+    "ldi4": "LDi4",
+    "ldi5": "LDi5",
+    "ldiSpecial": "LDi Especial",
+    "destination": "Destino",
+    "quantity": "Cantidad"
 }
