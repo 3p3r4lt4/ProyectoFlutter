@@ -11,7 +11,8 @@ class QuoteController extends ChangeNotifier {
   //* Aditional
   Map<String, dynamic> aditionalIPMap = {
     'quantity' : 0,
-    'price': 0.00
+    'price': 0.00,
+    'name': 'IP pública'
   };
   void loadAditionalIPQuote(String value) {
     final int intValue = int.parse(value);
@@ -23,7 +24,8 @@ class QuoteController extends ChangeNotifier {
   //* Installations
   Map<String, dynamic> equipmentToInstallMap = {
     'quantity' : 0,
-    'price': 0.00
+    'price': 0.00,
+    'name': 'Cantidad de equipos a instalar'
   };
   void loadInstallationsQuote(String value) {
     final int intValue = int.parse(value);
