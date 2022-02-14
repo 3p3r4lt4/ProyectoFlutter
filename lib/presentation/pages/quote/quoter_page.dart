@@ -11,6 +11,7 @@ import 'package:flxtech/generated/l10n.dart';
 import 'package:flxtech/presentation/controllers/quote/quoter_controller.dart';
 import 'package:flxtech/presentation/widgets/scaffold_container.dart';
 import 'package:flxtech/presentation/widgets/theme_dropdown.dart';
+import 'package:flxtech/presentation/pages/quote/widgets/resument_total_item.dart';
 
 class QuoterPage extends StatelessWidget {
   const QuoterPage();
@@ -72,7 +73,7 @@ class QuoterPage extends StatelessWidget {
                       child: IconButton(
                         onPressed: () => controller.showOrHideBagOfMinutes(),
                         icon: const Icon(Icons.arrow_forward_ios_sharp, size: ICON_SIZE_SMALL),
-                        color: purpleColor,
+                        color: grayColor,
                       ),
                     );
                   }
@@ -81,26 +82,40 @@ class QuoterPage extends StatelessWidget {
             ),
           ),
           Consumer<QuoteController>(builder: (context, controller, _) 
-            => !controller.isHideBagOfMinutes
-              ? DataTable(
-                  sortColumnIndex: 2,
-                  dataRowHeight: HEIGHT_DATAROW,
-                  showBottomBorder: false,
-                  // columnSpacing: 100,
-                  columns: List.generate(
-                    3,(index) {
-                      List<String> titleList = [l10n.destination,l10n.quantity,l10n.price];
-                      return DataColumn(
-                        label: Text(titleList[index], style: TextStyleApp.b2()),
-                      );
-                    },
-                  ),
-                  rows: List.generate(nameWithFeedMap.length, (index) {
-                    String key = nameWithFeedMap.keys.elementAt(index);
-                    return _buildDataRowFeed(key, nameWithFeedMap[key]!['name'], controller);
-                  }),
+            => Column(
+              children: [
+                !controller.isHideBagOfMinutes
+                  ? DataTable(
+                      sortColumnIndex: 2,
+                      dataRowHeight: HEIGHT_DATAROW,
+                      showBottomBorder: false,
+                      // columnSpacing: 100,
+                      columns: List.generate(
+                        3,(index) {
+                          List<String> titleList = [l10n.destination,l10n.quantity,'${l10n.price} $CURRENCY_TYPE_SYMBOL'];
+                          return DataColumn(
+                            label: Text(titleList[index], style: TextStyleApp.b2()),
+                          );
+                        },
+                      ),
+                      rows: List.generate(nameWithFeedMap.length, (index) {
+                        String key = nameWithFeedMap.keys.elementAt(index);
+                        return _buildDataRowFeed(key, nameWithFeedMap[key]!['name'], controller);
+                      }),
+                    )
+                  : const SizedBox(height: MARGIN_SIZE_SMALL),
+                const SizedBox(height: MARGIN_SIZE_SMALL),
+                ResumenTotalItem(
+                  l10n.subTotal, 
+                  value: '$CURRENCY_TYPE_SYMBOL  ${controller.bagOfMinutesQuote.entries
+                    .fold(
+                      0.0, (double previous, next) 
+                        => (previous + next.value['price'])
+                    )}'
                 )
-              : const SizedBox(height: MARGIN_SIZE_SMALL),
+              ],
+            ),
+            
           ),
         ],
       ),
