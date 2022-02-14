@@ -7,16 +7,6 @@ import 'package:flxtech/data/local/dictionaries.dart';
 class QuoteController extends ChangeNotifier {
 
   //* Quoter
-  // Map<String, Map<String, dynamic>> localLandlineMap = Map();
-  // Map<String, Map<String, dynamic>> nationalLandlineMap = Map();
-  // Map<String, Map<String, dynamic>> ruralLandlineMap = Map();
-  // Map<String, Map<String, dynamic>> mobileMap = Map();
-  // Map<String, Map<String, dynamic>> ldi1Map = Map();
-  // Map<String, Map<String, dynamic>> ldi2Map = Map();
-  // Map<String, Map<String, dynamic>> ldi3Map = Map();
-  // Map<String, Map<String, dynamic>> ldi4Map = Map();
-  // Map<String, Map<String, dynamic>> ldi5Map = Map();
-  // Map<String, Map<String, dynamic>> ldiSpecialMap = Map();
 
   //Bag of minutes quotes
   Map<String, Map<String, dynamic>> bagOfMinutesQuote = Map();
@@ -42,6 +32,13 @@ class QuoteController extends ChangeNotifier {
         this.bagOfMinutesQuote[key]!['price'] = intValue*bagOfMinutesQuote[key]!['feed_price'];
       }
     }
+    notifyListeners();
+  }
+
+  //ui
+  bool isHideBagOfMinutes = false;
+  void showOrHideBagOfMinutes() {
+    isHideBagOfMinutes = !isHideBagOfMinutes;
     notifyListeners();
   }
 
