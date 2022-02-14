@@ -60,26 +60,10 @@ class QuoterPage extends StatelessWidget {
       rightPressed: () => print('help'),
       body: ListView(
         children: [
-          Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                const SizedBox(),
-                Text(l10n.bagOfMinutes, style: TextStyleApp.h1()),
-                Consumer<QuoteController>(
-                  builder: (context, controller, _) {
-                    return RotatedBox(
-                      quarterTurns: controller.isHideBagOfMinutes ? 1 : 0,
-                      child: IconButton(
-                        onPressed: () => controller.showOrHideBagOfMinutes(),
-                        icon: const Icon(Icons.arrow_forward_ios_sharp, size: ICON_SIZE_SMALL),
-                        color: grayColor,
-                      ),
-                    );
-                  }
-                ),
-              ],
-            ),
+          Consumer<QuoteController>(
+            builder: (context, controller, _) {
+              return _TitleQuoterItem(l10n.bagOfMinutes,isHide: controller.isHideBagOfMinutes,handleAction: () => controller.showOrHideBagOfMinutes());
+            }
           ),
           Consumer<QuoteController>(builder: (context, controller, _) 
             => Column(
@@ -115,6 +99,39 @@ class QuoterPage extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class _TitleQuoterItem extends StatelessWidget {
+  const _TitleQuoterItem(
+    this.title,{
+    this.handleAction,
+    required this.isHide,
+  });
+
+  final String title;
+  final void Function()? handleAction;
+  final bool isHide;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        const SizedBox(),
+        Text(title, style: TextStyleApp.h1()),
+        RotatedBox(
+          quarterTurns: isHide ? 1 : 0,
+          // quarterTurns: controller.isHideBagOfMinutes ? 1 : 0,
+          child: IconButton(
+            onPressed: handleAction,
+            // onPressed: () => controller.showOrHideBagOfMinutes(),
+            icon: const Icon(Icons.arrow_forward_ios_sharp, size: ICON_SIZE_SMALL),
+            color: grayColor,
+          ),
+        ),
+      ],
     );
   }
 }
