@@ -94,6 +94,7 @@ class QuoterPage extends StatelessWidget {
                   l10n.subTotal, 
                   value: '$CURRENCY_TYPE_SYMBOL  ${doubleToAsFixedDecimals(controller.subTotalBagOfMinutesQuote)}'
                 ),
+                const Divider(),
               
               ],
             ),
@@ -121,6 +122,20 @@ class QuoterPage extends StatelessWidget {
                         }),
                       )
                     : const SizedBox(height: MARGIN_SIZE_SMALL);
+                }
+              ),
+              const SizedBox(height: MARGIN_SIZE_SMALL),
+              Consumer<QuoteController>(
+                builder: (context, controller, _) {
+                  return Column(
+                    children: [
+                      ResumenTotalItem(
+                        l10n.subTotal, 
+                        value: '$CURRENCY_TYPE_SYMBOL  ${doubleToAsFixedDecimals(controller.subTotalServicesQuote)}'
+                      ),
+                      const Divider(),
+                    ],
+                  );
                 }
               ),
               _TitleQuoterItem(l10n.installations),
@@ -151,7 +166,12 @@ class _TitleQuoterItem extends StatelessWidget {
       children: [
         const SizedBox(width: WIDTH_ICONBUTTON),
         const Expanded(child: SizedBox()),
-        Text(title, style: TextStyleApp.h1()),
+        Text(
+          title, 
+          style: TextStyleApp.h1().copyWith(
+          // fontWeight: FontWeight.bold,
+          ),
+        ),
         const Expanded(child: SizedBox()),
         isHide != null
           ? RotatedBox(
