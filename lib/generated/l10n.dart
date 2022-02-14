@@ -359,6 +359,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Pago único de instalación`
+  String get oneTimeInstallationPayment {
+    return Intl.message(
+      'Pago único de instalación',
+      name: 'oneTimeInstallationPayment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cantidad de equipos telefónicos a instalar:`
+  String get numberOfTelephoneToBeInstalled {
+    return Intl.message(
+      'Cantidad de equipos telefónicos a instalar:',
+      name: 'numberOfTelephoneToBeInstalled',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pago Recurrente / Renta Mensual`
+  String get recurringPaymentOrMonthlyRent {
+    return Intl.message(
+      'Pago Recurrente / Renta Mensual',
+      name: 'recurringPaymentOrMonthlyRent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Precio por servidor`
+  String get pricePerServer {
+    return Intl.message(
+      'Precio por servidor',
+      name: 'pricePerServer',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

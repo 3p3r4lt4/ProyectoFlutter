@@ -43,11 +43,19 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Fijo Nacional"),
         "needAnAccount":
             MessageLookupByLibrary.simpleMessage("Necesita una cuenta?"),
+        "numberOfTelephoneToBeInstalled": MessageLookupByLibrary.simpleMessage(
+            "Cantidad de equipos telefónicos a instalar:"),
+        "oneTimeInstallationPayment":
+            MessageLookupByLibrary.simpleMessage("Pago único de instalación"),
         "password": MessageLookupByLibrary.simpleMessage("Contraseña"),
         "price": MessageLookupByLibrary.simpleMessage("Precio"),
+        "pricePerServer":
+            MessageLookupByLibrary.simpleMessage("Precio por servidor"),
         "quantity": MessageLookupByLibrary.simpleMessage("Cantidad"),
         "quote": MessageLookupByLibrary.simpleMessage("Cotizar"),
         "rates": MessageLookupByLibrary.simpleMessage("Tarifas"),
+        "recurringPaymentOrMonthlyRent": MessageLookupByLibrary.simpleMessage(
+            "Pago Recurrente / Renta Mensual"),
         "required": MessageLookupByLibrary.simpleMessage("Campo requerido"),
         "ruralLandline": MessageLookupByLibrary.simpleMessage("Fijo Rural"),
         "server": MessageLookupByLibrary.simpleMessage("Servidor"),

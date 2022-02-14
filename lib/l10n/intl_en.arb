@@ -29,5 +29,9 @@
     "ldi5": "LDi5",
     "ldiSpecial": "LDi Especial",
     "destination": "Destino",
-    "quantity": "Cantidad"
+    "quantity": "Cantidad",
+    "oneTimeInstallationPayment": "Pago único de instalación",
+    "numberOfTelephoneToBeInstalled": "Cantidad de equipos telefónicos a instalar:",
+    "recurringPaymentOrMonthlyRent": "Pago Recurrente / Renta Mensual",
+    "pricePerServer": "Precio por servidor"
 }
