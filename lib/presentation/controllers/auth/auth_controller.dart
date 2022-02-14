@@ -10,6 +10,7 @@ class AuthController extends ChangeNotifier {
   void handleSignIn(BuildContext context) {
       context.read<QuoteController>().loadQuantityFeedMap();
       context.read<QuoteController>().loadRangeFeedMap();
+      context.read<QuoteController>().loadBagOfMinutesQuoteInitial();
     WidgetsBinding.instance!.addPostFrameCallback((_) {
       Navigator.pushNamedAndRemoveUntil(
       context,

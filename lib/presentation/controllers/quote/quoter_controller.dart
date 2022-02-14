@@ -18,25 +18,34 @@ class QuoteController extends ChangeNotifier {
   Map<String, Map<String, dynamic>> ldiSpecialMap = Map();
 
   //Bag of minutes quotes
-  Map<String, Map<String, dynamic>> bagOfMinutesQuote = {
-    'local_landline': {
-      'quantity': 0
-    },
-  };
+  Map<String, Map<String, dynamic>> bagOfMinutesQuote = Map();
+
+  void loadBagOfMinutesQuoteInitial() {
+    bagOfMinutesQuote.addAll(nameWithFeedMap);
+    for (var i = 0; i < bagOfMinutesQuote.length; i++) {
+      final String key = bagOfMinutesQuote.keys.elementAt(i);
+      bagOfMinutesQuote[key]!['quantity'] = 0;
+    }
+  }
 
   void loadBagOfMinutesQuote(String key, String value) {
     // final String key = 'local_landline';
     final int intValue = int.parse(value);
     for (var i = 0; i < ITERATIONS_RANGE_FEED; i++) {
-      if (this.rangeFeedMap[i]!['min'] <= intValue && intValue <= this.rangeFeedMap[i]!['max'])
-        bagOfMinutesQuote[key] = {
-          'name': nameWithFeedMap[key]!['name'],
-          'quantity': intValue,
-          'price': rangeFeedMap[i]!['value_percentage']*nameWithFeedMap[key]!['feed']
-        };
+      if (this.rangeFeedMap[i]!['min'] <= intValue && intValue <= this.rangeFeedMap[i]!['max']) {
+        this.bagOfMinutesQuote[key]!['quantity'] = intValue;
+        this.bagOfMinutesQuote[key]!['price'] = rangeFeedMap[i]!['value_percentage']*bagOfMinutesQuote[key]!['feed'];
+      }  
+        // bagOfMinutesQuote[key] = {
+          // 'name': nameWithFeedMap[key]!['name'],
+        //   'quantity': intValue,
+        //   'price': rangeFeedMap[i]!['value_percentage']*nameWithFeedMap[key]!['feed']
     }
+    print('bagOfMinutesQuote');
+    print(bagOfMinutesQuote);
     notifyListeners();
   }
+
   
   //* Helpers
   Map<int, Map<String, dynamic>> rangeFeedMap = Map();
