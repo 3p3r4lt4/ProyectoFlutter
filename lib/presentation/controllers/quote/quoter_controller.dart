@@ -48,6 +48,11 @@ class QuoteController extends ChangeNotifier {
     isHideBagOfMinutes = !isHideBagOfMinutes;
     notifyListeners();
   }
+  bool isHideServices = false;
+  void showOrHideServices() {
+    isHideServices = !isHideServices;
+    notifyListeners();
+  }
 
   
   //* Helpers
