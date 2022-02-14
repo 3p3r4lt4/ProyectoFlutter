@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:flxtech/data/local/dictionaries.dart';
+import 'package:flxtech/core/theme/colors_app.dart';
 import 'package:flxtech/core/env/environment.dart';
 import 'package:flxtech/core/helpers/double_to_as_fixed_decimals.dart';
 import 'package:flxtech/core/style/text_style_app.dart';
@@ -15,8 +16,8 @@ class QuoterPage extends StatelessWidget {
   const QuoterPage();
 
   DataRow _buildDataRowFeed(
-      String key, String destination, QuoteController controller) {
-    return DataRow(
+      String key, String destination, QuoteController controller) 
+    => DataRow(
       cells: [
         DataCell(
           Text(destination, style: TextStyleApp.b2()),
@@ -46,7 +47,6 @@ class QuoterPage extends StatelessWidget {
         ),
       ],
     );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,32 +60,47 @@ class QuoterPage extends StatelessWidget {
       body: ListView(
         children: [
           Container(
-            alignment: Alignment.center,
-            child: Text(l10n.bagOfMinutes, style: TextStyleApp.h1()),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                const SizedBox(),
+                Text(l10n.bagOfMinutes, style: TextStyleApp.h1()),
+                Consumer<QuoteController>(
+                  builder: (context, controller, _) {
+                    return RotatedBox(
+                      quarterTurns: controller.isHideBagOfMinutes ? 1 : 0,
+                      child: IconButton(
+                        onPressed: () => controller.showOrHideBagOfMinutes(),
+                        icon: const Icon(Icons.arrow_forward_ios_sharp, size: ICON_SIZE_SMALL),
+                        color: purpleColor,
+                      ),
+                    );
+                  }
+                ),
+              ],
+            ),
           ),
           Consumer<QuoteController>(builder: (context, controller, _) 
-            => DataTable(
-              sortColumnIndex: 2,
-              dataRowHeight: HEIGHT_DATAROW,
-              // columnSpacing: 100,
-              columns: List.generate(
-                3,
-                (index) {
-                  List<String> titleList = [
-                    l10n.destination,
-                    l10n.quantity,
-                    l10n.price
-                  ];
-                  return DataColumn(
-                    label: Text(titleList[index], style: TextStyleApp.b2()),
-                  );
-                },
-              ),
-              rows: List.generate(nameWithFeedMap.length, (index) {
-                String key = nameWithFeedMap.keys.elementAt(index);
-                return _buildDataRowFeed(key, nameWithFeedMap[key]!['name'], controller);
-              }),
-            ),
+            => !controller.isHideBagOfMinutes
+              ? DataTable(
+                  sortColumnIndex: 2,
+                  dataRowHeight: HEIGHT_DATAROW,
+                  showBottomBorder: false,
+                  // columnSpacing: 100,
+                  columns: List.generate(
+                    3,(index) {
+                      List<String> titleList = [l10n.destination,l10n.quantity,l10n.price];
+                      return DataColumn(
+                        label: Text(titleList[index], style: TextStyleApp.b2()),
+                      );
+                    },
+                  ),
+                  rows: List.generate(nameWithFeedMap.length, (index) {
+                    String key = nameWithFeedMap.keys.elementAt(index);
+                    return _buildDataRowFeed(key, nameWithFeedMap[key]!['name'], controller);
+                  }),
+                )
+              : const SizedBox(height: MARGIN_SIZE_SMALL),
           ),
         ],
       ),
