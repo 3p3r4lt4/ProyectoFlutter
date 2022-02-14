@@ -9,6 +9,7 @@ import 'package:flxtech/core/style/text_style_app.dart';
 import 'package:flxtech/core/values/dimensions.dart';
 import 'package:flxtech/generated/l10n.dart';
 import 'package:flxtech/presentation/pages/quote/widgets/quoter_server_item.dart';
+import 'package:flxtech/presentation/pages/quote/widgets/quoter_custom_item.dart';
 import 'package:flxtech/presentation/controllers/quote/quoter_controller.dart';
 import 'package:flxtech/presentation/widgets/scaffold_container.dart';
 import 'package:flxtech/presentation/widgets/theme_dropdown.dart';
@@ -139,6 +140,21 @@ class QuoterPage extends StatelessWidget {
                 }
               ),
               _TitleQuoterItem(l10n.installations),
+              Consumer<QuoteController>(
+                builder: (context, controller, _) {
+                  return Column(
+                    children: [
+                      QuoterCustomItem(
+                        controller.equipmentToInstallMap, 
+                        controller: controller,
+                        isAditional: false,
+                      ),
+                      const Divider(),
+                    ],
+                  );
+                }
+              ),
+              
               _TitleQuoterItem(l10n.additional),
             ],
           ),
