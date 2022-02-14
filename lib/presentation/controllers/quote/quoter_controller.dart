@@ -25,24 +25,22 @@ class QuoteController extends ChangeNotifier {
     for (var i = 0; i < bagOfMinutesQuote.length; i++) {
       final String key = bagOfMinutesQuote.keys.elementAt(i);
       bagOfMinutesQuote[key]!['quantity'] = 0;
+      bagOfMinutesQuote[key]!['price'] = 0.00;
     }
   }
 
   void loadBagOfMinutesQuote(String key, String value) {
-    // final String key = 'local_landline';
     final int intValue = int.parse(value);
+    this.bagOfMinutesQuote[key]!['quantity'] = intValue;
     for (var i = 0; i < ITERATIONS_RANGE_FEED; i++) {
       if (this.rangeFeedMap[i]!['min'] <= intValue && intValue <= this.rangeFeedMap[i]!['max']) {
-        this.bagOfMinutesQuote[key]!['quantity'] = intValue;
-        this.bagOfMinutesQuote[key]!['price'] = rangeFeedMap[i]!['value_percentage']*bagOfMinutesQuote[key]!['feed'];
-      }  
-        // bagOfMinutesQuote[key] = {
-          // 'name': nameWithFeedMap[key]!['name'],
-        //   'quantity': intValue,
-        //   'price': rangeFeedMap[i]!['value_percentage']*nameWithFeedMap[key]!['feed']
+        this.bagOfMinutesQuote[key]!['feed_price'] = rangeFeedMap[i]!['value_percentage']*bagOfMinutesQuote[key]!['feed'];
+        this.bagOfMinutesQuote[key]!['price'] = intValue*bagOfMinutesQuote[key]!['feed_price'];
+      } else {
+        this.bagOfMinutesQuote[key]!['feed_price'] = MAX_DISCOUNT_RANGE_VALUE*bagOfMinutesQuote[key]!['feed'];
+        this.bagOfMinutesQuote[key]!['price'] = intValue*bagOfMinutesQuote[key]!['feed_price'];
+      }
     }
-    print('bagOfMinutesQuote');
-    print(bagOfMinutesQuote);
     notifyListeners();
   }
 
@@ -53,6 +51,7 @@ class QuoteController extends ChangeNotifier {
 
   void loadRangeFeedMap() {
     // 300	700	1000	2000	3000	4000	5000 6000	7000 8000	9000 10000
+    // 10000 to 50000 use 20% discount
     //discount and value in percentage %
     for (var i = 0; i < ITERATIONS_RANGE_FEED; i++) {
       this.rangeFeedMap[i] = {
