@@ -5,7 +5,38 @@ import 'package:flxtech/data/local/dictionaries.dart';
 
 class QuoteController extends ChangeNotifier {
 
+  //* Quoter
+  Map<String, Map<String, dynamic>> localLandlineMap = Map();
+  Map<String, Map<String, dynamic>> nationalLandlineMap = Map();
+  Map<String, Map<String, dynamic>> ruralLandlineMap = Map();
+  Map<String, Map<String, dynamic>> mobileMap = Map();
+  Map<String, Map<String, dynamic>> ldi1Map = Map();
+  Map<String, Map<String, dynamic>> ldi2Map = Map();
+  Map<String, Map<String, dynamic>> ldi3Map = Map();
+  Map<String, Map<String, dynamic>> ldi4Map = Map();
+  Map<String, Map<String, dynamic>> ldi5Map = Map();
+  Map<String, Map<String, dynamic>> ldiSpecialMap = Map();
 
+  //Bag of minutes quotes
+  Map<String, Map<String, dynamic>> bagOfMinutesQuote = {
+    'local_landline': {
+      'quantity': 0
+    },
+  };
+
+  void loadBagOfMinutesQuote(String key, String value) {
+    // final String key = 'local_landline';
+    final int intValue = int.parse(value);
+    for (var i = 0; i < ITERATIONS_RANGE_FEED; i++) {
+      if (this.rangeFeedMap[i]!['min'] <= intValue && intValue <= this.rangeFeedMap[i]!['max'])
+        bagOfMinutesQuote[key] = {
+          'name': nameWithFeedMap[key]!['name'],
+          'quantity': intValue,
+          'price': rangeFeedMap[i]!['value_percentage']*nameWithFeedMap[key]!['feed']
+        };
+    }
+    notifyListeners();
+  }
   
   //* Helpers
   Map<int, Map<String, dynamic>> rangeFeedMap = Map();
