@@ -24,6 +24,7 @@ class FLXTech extends StatelessWidget {
       ],
       child: MaterialApp(
         home: SignInPage(),
+        debugShowCheckedModeBanner: false,
         routes: Pages.routes,
         localizationsDelegates: [
           S.delegate,
