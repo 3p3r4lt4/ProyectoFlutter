@@ -10,6 +10,7 @@ class QuoteController extends ChangeNotifier {
 
   //* Services
   Map<String, Map<String, dynamic>> servicesQuote = Map();
+  double subTotalServicesQuote = 0.00;
 
   void loadServicesQuoteInitial() {
     servicesQuote.addAll(serverWithFeedMap);
@@ -18,6 +19,19 @@ class QuoteController extends ChangeNotifier {
       servicesQuote[key]!['quantity'] = 0;
       servicesQuote[key]!['price'] = 0.00;
     }
+  }
+
+  void loadServicesQuote(String key, String value) {
+    final int intValue = int.parse(value);
+    this.servicesQuote[key]!['quantity'] = intValue;
+    this.servicesQuote[key]!['price'] = intValue*servicesQuote[key]!['feed'];
+    //sum total
+    this.subTotalServicesQuote = servicesQuote.entries
+      .fold(
+        0.0, (double previous, next) 
+          => (previous + next.value['price'])
+      );
+    notifyListeners();
   }
 
   //* Bag of minutes quotes
