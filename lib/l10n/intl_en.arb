@@ -42,5 +42,7 @@
     "ipPublic": "IP pública",
     "annexes": "Anexos",
     "extraChannels": "Canales Extras (Por defecto incluye 10 sin costo)",
-    "phoneIPToInstall": "Teléfonos IP a instalar (No incluye cableado)"
+    "phoneIPToInstall": "Teléfonos IP a instalar (No incluye cableado)",
+    "yes": "Si",
+    "no": "No"
 }

@@ -47,6 +47,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Fijo Nacional"),
         "needAnAccount":
             MessageLookupByLibrary.simpleMessage("Necesita una cuenta?"),
+        "no": MessageLookupByLibrary.simpleMessage("No"),
         "numberOfAdditionalChannels": MessageLookupByLibrary.simpleMessage(
             "Cantidad de canales adicionales"),
         "numberOfAnnexes":
@@ -79,6 +80,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "signIn": MessageLookupByLibrary.simpleMessage("Login"),
         "signUp": MessageLookupByLibrary.simpleMessage("Sign up"),
         "subTotal": MessageLookupByLibrary.simpleMessage("Sub Total"),
-        "total": MessageLookupByLibrary.simpleMessage("Total")
+        "total": MessageLookupByLibrary.simpleMessage("Total"),
+        "yes": MessageLookupByLibrary.simpleMessage("Si")
       };
 }
