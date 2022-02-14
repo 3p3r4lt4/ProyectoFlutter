@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'package:flxtech/core/env/environment.dart';
 import 'package:flxtech/core/style/text_style_app.dart';
 import 'package:flxtech/core/values/dimensions.dart';
 import 'package:flxtech/presentation/controllers/quote/quoter_controller.dart';
@@ -26,7 +27,7 @@ class QuoterServerItem extends StatelessWidget {
       children: [
         Expanded(
           child: Container(
-            margin: const EdgeInsets.only(left: MARGIN_SIZE_SMALL),
+            margin: const EdgeInsets.only(left: MARGIN_SIZE_DEFAULT),
             child: Text(
               service['name'],
               style: TextStyleApp.caption(),
@@ -44,7 +45,15 @@ class QuoterServerItem extends StatelessWidget {
             if (value.isNotEmpty)
               controller.loadServicesQuote(keyService, value);
           },
-
+        ),
+        Container(
+          width: WIDTH_SHORT_TEXFORM,
+          alignment: Alignment.centerRight,
+          margin: const EdgeInsets.only(right: MARGIN_SIZE_DEFAULT),
+            child: Text(
+              '$CURRENCY_TYPE_SYMBOL ${service['price']}',
+              style: TextStyleApp.b1(),
+            ),
         ),
       ],
     );
