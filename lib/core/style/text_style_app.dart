@@ -23,7 +23,7 @@ abstract class TextStyleApp {
     height: 1.5,
   );
   static TextStyle b1() => TextStyle(
-    color: primaryColor, //Envio Gratis
+    color: darkColor, //Envio Gratis
     fontSize: 16,
     height: 1.5,
   );
