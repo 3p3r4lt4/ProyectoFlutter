@@ -3,6 +3,7 @@
 const double WIDTH_DROPDOWN = 12;
 const double HEIGHT_DROPDOWN = 12;
 const double HEIGHT_DATAROW = 40;
+const double WIDTH_ICONBUTTON = 35;
 //*Feat Quoter
 const double MAX_DISCOUNT_RANGE = 0.2; //20%
 const double MAX_DISCOUNT_RANGE_VALUE = 0.8; //80%

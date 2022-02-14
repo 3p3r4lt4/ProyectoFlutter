@@ -98,6 +98,9 @@ class QuoterPage extends StatelessWidget {
                     return _TitleQuoterItem(l10n.services,isHide: controller.isHideServices,handleAction: () => controller.showOrHideServices());
                   }
                 ),
+                _TitleQuoterItem(l10n.installations),
+                _TitleQuoterItem(l10n.additional),
+              
               ],
             ),
             
@@ -112,30 +115,36 @@ class _TitleQuoterItem extends StatelessWidget {
   const _TitleQuoterItem(
     this.title,{
     this.handleAction,
-    required this.isHide,
+    this.isHide,
   });
 
   final String title;
   final void Function()? handleAction;
-  final bool isHide;
+  final bool? isHide;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        const SizedBox(),
+        const SizedBox(width: WIDTH_ICONBUTTON),
+        const Expanded(child: SizedBox()),
         Text(title, style: TextStyleApp.h1()),
-        RotatedBox(
-          quarterTurns: isHide ? 1 : 0,
-          // quarterTurns: controller.isHideBagOfMinutes ? 1 : 0,
-          child: IconButton(
-            onPressed: handleAction,
-            // onPressed: () => controller.showOrHideBagOfMinutes(),
-            icon: const Icon(Icons.arrow_forward_ios_sharp, size: ICON_SIZE_SMALL),
-            color: grayColor,
-          ),
-        ),
+        const Expanded(child: SizedBox()),
+        isHide != null
+          ? RotatedBox(
+              quarterTurns: isHide! ? 1 : 0,
+              child: IconButton(
+                onPressed: handleAction,
+                icon: const Icon(Icons.arrow_forward_ios_sharp, size: ICON_SIZE_SMALL),
+                color: grayColor,
+              ),
+            )
+          : IconButton(
+            onPressed: () => null,
+            icon: const Icon(Icons.help_outline_outlined, size: ICON_SIZE_SMALL),
+            // icon: const Icon(Icons.electrical_services_rounded, size: ICON_SIZE_SMALL),
+          )
       ],
     );
   }
