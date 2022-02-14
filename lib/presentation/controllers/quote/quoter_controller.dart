@@ -14,6 +14,12 @@ class QuoteController extends ChangeNotifier {
     'price': 0.00,
     'name': 'IP pública'
   };
+  bool isIPPublic = false;
+  void loadUseIpPublic(bool value) {
+    isIPPublic = value;
+    aditionalIPMap['price'] = isIPPublic ? 50.00 : 0.00;
+    notifyListeners();
+  }
   void loadAditionalIPQuote(String value) {
     final int intValue = int.parse(value);
     this.aditionalIPMap['quantity'] = intValue;
