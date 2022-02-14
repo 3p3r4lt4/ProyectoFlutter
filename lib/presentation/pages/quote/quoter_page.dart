@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'package:flxtech/data/local/dictionaries.dart';
 import 'package:flxtech/core/env/environment.dart';
 import 'package:flxtech/core/helpers/double_to_as_fixed_decimals.dart';
 import 'package:flxtech/core/style/text_style_app.dart';
@@ -62,10 +63,8 @@ class QuoterPage extends StatelessWidget {
             alignment: Alignment.center,
             child: Text(l10n.bagOfMinutes, style: TextStyleApp.h1()),
           ),
-          Consumer<QuoteController>(builder: (context, controller, _) {
-            // print(controller.bagOfMinutesQuote);
-            // final String key = 'local_landline';
-            return DataTable(
+          Consumer<QuoteController>(builder: (context, controller, _) 
+            => DataTable(
               sortColumnIndex: 2,
               dataRowHeight: HEIGHT_DATAROW,
               // columnSpacing: 100,
@@ -82,12 +81,12 @@ class QuoterPage extends StatelessWidget {
                   );
                 },
               ),
-              rows: [
-                _buildDataRowFeed(
-                    'local_landline', l10n.localLandline, controller),
-              ],
-            );
-          }),
+              rows: List.generate(nameWithFeedMap.length, (index) {
+                String key = nameWithFeedMap.keys.elementAt(index);
+                return _buildDataRowFeed(key, nameWithFeedMap[key]!['name'], controller);
+              }),
+            ),
+          ),
         ],
       ),
     );
