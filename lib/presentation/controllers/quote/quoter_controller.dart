@@ -10,6 +10,7 @@ class QuoteController extends ChangeNotifier {
 
   //Bag of minutes quotes
   Map<String, Map<String, dynamic>> bagOfMinutesQuote = Map();
+  double subTotalBagOfMinutesQuote = 0.00;
 
   void loadBagOfMinutesQuoteInitial() {
     bagOfMinutesQuote.addAll(nameWithFeedMap);
@@ -32,6 +33,12 @@ class QuoteController extends ChangeNotifier {
         this.bagOfMinutesQuote[key]!['price'] = intValue*bagOfMinutesQuote[key]!['feed_price'];
       }
     }
+    //sum total
+    this.subTotalBagOfMinutesQuote = bagOfMinutesQuote.entries
+      .fold(
+        0.0, (double previous, next) 
+          => (previous + next.value['price'])
+      );
     notifyListeners();
   }
 
