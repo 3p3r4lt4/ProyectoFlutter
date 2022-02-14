@@ -7,6 +7,8 @@ import 'package:flxtech/data/local/dictionaries.dart';
 class QuoteController extends ChangeNotifier {
 
   ///* Quoter
+  ///
+  double totalPriceQuoter = 0.00;
 
   //* Aditional
   Map<String, dynamic> aditionalIPMap = {
@@ -17,9 +19,15 @@ class QuoteController extends ChangeNotifier {
   bool isIPPublic = false;
   void loadUseIpPublic(bool value) {
     isIPPublic = value;
-    aditionalIPMap['price'] = isIPPublic ? 50.00 : 0.00;
+    isIPPublic 
+      ? totalPriceQuoter += ADITIONAL_IPPUBLIC_PRICE
+      : totalPriceQuoter -= ADITIONAL_IPPUBLIC_PRICE;
+    aditionalIPMap['price'] = isIPPublic ? ADITIONAL_IPPUBLIC_PRICE : 0.00;
+    aditionalIPMap['price'] = isIPPublic ? ADITIONAL_IPPUBLIC_PRICE : 0.00;
     notifyListeners();
   }
+
+  //toDo: unused
   void loadAditionalIPQuote(String value) {
     final int intValue = int.parse(value);
     this.aditionalIPMap['quantity'] = intValue;
@@ -36,7 +44,9 @@ class QuoteController extends ChangeNotifier {
   void loadInstallationsQuote(String value) {
     final int intValue = int.parse(value);
     this.equipmentToInstallMap['quantity'] = intValue;
+    this.totalPriceQuoter -= this.equipmentToInstallMap['price'];
     this.equipmentToInstallMap['price'] = intValue*EQUIPMENT_TO_INSTALL_PRICE;
+    this.totalPriceQuoter += this.equipmentToInstallMap['price'];
     notifyListeners();
   }
 
@@ -58,11 +68,13 @@ class QuoteController extends ChangeNotifier {
     this.servicesQuote[key]!['quantity'] = intValue;
     this.servicesQuote[key]!['price'] = intValue*servicesQuote[key]!['feed'];
     //sum total
+    this.totalPriceQuoter -= this.subTotalServicesQuote;
     this.subTotalServicesQuote = servicesQuote.entries
       .fold(
         0.0, (double previous, next) 
           => (previous + next.value['price'])
       );
+    this.totalPriceQuoter += this.subTotalServicesQuote;
     notifyListeners();
   }
 
@@ -91,12 +103,14 @@ class QuoteController extends ChangeNotifier {
         this.bagOfMinutesQuote[key]!['price'] = intValue*bagOfMinutesQuote[key]!['feed_price'];
       }
     }
+    this.totalPriceQuoter -= this.subTotalBagOfMinutesQuote;
     //sum total
     this.subTotalBagOfMinutesQuote = bagOfMinutesQuote.entries
       .fold(
         0.0, (double previous, next) 
           => (previous + next.value['price'])
       );
+    this.totalPriceQuoter += this.subTotalBagOfMinutesQuote;
     notifyListeners();
   }
 
