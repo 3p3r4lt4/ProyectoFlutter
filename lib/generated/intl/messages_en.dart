@@ -23,13 +23,17 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "additional": MessageLookupByLibrary.simpleMessage("Adicionales"),
+        "annexes": MessageLookupByLibrary.simpleMessage("Anexos"),
         "bagOfMinutes":
             MessageLookupByLibrary.simpleMessage("Bolsa de Minutos"),
         "consumption": MessageLookupByLibrary.simpleMessage("Consumo"),
         "destination": MessageLookupByLibrary.simpleMessage("Destino"),
         "email": MessageLookupByLibrary.simpleMessage("Correo"),
+        "extraChannels": MessageLookupByLibrary.simpleMessage(
+            "Canales Extras (Por defecto incluye 10 sin costo)"),
         "installations": MessageLookupByLibrary.simpleMessage("Instalaciones"),
         "internet": MessageLookupByLibrary.simpleMessage("Internet"),
+        "ipPublic": MessageLookupByLibrary.simpleMessage("IP pública"),
         "ldi1": MessageLookupByLibrary.simpleMessage("LDi1"),
         "ldi2": MessageLookupByLibrary.simpleMessage("LDi2"),
         "ldi3": MessageLookupByLibrary.simpleMessage("LDi3"),
@@ -43,15 +47,27 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Fijo Nacional"),
         "needAnAccount":
             MessageLookupByLibrary.simpleMessage("Necesita una cuenta?"),
+        "numberOfAdditionalChannels": MessageLookupByLibrary.simpleMessage(
+            "Cantidad de canales adicionales"),
+        "numberOfAnnexes":
+            MessageLookupByLibrary.simpleMessage("Cantidad de anexos"),
+        "numberOfEquipmentToInstall": MessageLookupByLibrary.simpleMessage(
+            "Cantidad de equipos a instalar"),
         "numberOfTelephoneToBeInstalled": MessageLookupByLibrary.simpleMessage(
             "Cantidad de equipos telefónicos a instalar:"),
         "oneTimeInstallationPayment":
             MessageLookupByLibrary.simpleMessage("Pago único de instalación"),
         "password": MessageLookupByLibrary.simpleMessage("Contraseña"),
+        "phoneIPToInstall": MessageLookupByLibrary.simpleMessage(
+            "Teléfonos IP a instalar (No incluye cableado)"),
         "price": MessageLookupByLibrary.simpleMessage("Precio"),
         "pricePerServer":
             MessageLookupByLibrary.simpleMessage("Precio por servidor"),
         "quantity": MessageLookupByLibrary.simpleMessage("Cantidad"),
+        "quantityOfNewNumbers":
+            MessageLookupByLibrary.simpleMessage("Cantidad de números nuevos"),
+        "quantityOfNumbersForPortability": MessageLookupByLibrary.simpleMessage(
+            "Cantidad de números para portabilidad"),
         "quote": MessageLookupByLibrary.simpleMessage("Cotizar"),
         "rates": MessageLookupByLibrary.simpleMessage("Tarifas"),
         "recurringPaymentOrMonthlyRent": MessageLookupByLibrary.simpleMessage(

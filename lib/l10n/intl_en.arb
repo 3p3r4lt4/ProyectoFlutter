@@ -33,5 +33,14 @@
     "oneTimeInstallationPayment": "Pago único de instalación",
     "numberOfTelephoneToBeInstalled": "Cantidad de equipos telefónicos a instalar:",
     "recurringPaymentOrMonthlyRent": "Pago Recurrente / Renta Mensual",
-    "pricePerServer": "Precio por servidor"
+    "pricePerServer": "Precio por servidor",
+    "quantityOfNumbersForPortability": "Cantidad de números para portabilidad",
+    "quantityOfNewNumbers": "Cantidad de números nuevos",
+    "numberOfAnnexes": "Cantidad de anexos",
+    "numberOfAdditionalChannels": "Cantidad de canales adicionales",
+    "numberOfEquipmentToInstall": "Cantidad de equipos a instalar",
+    "ipPublic": "IP pública",
+    "annexes": "Anexos",
+    "extraChannels": "Canales Extras (Por defecto incluye 10 sin costo)",
+    "phoneIPToInstall": "Teléfonos IP a instalar (No incluye cableado)"
 }

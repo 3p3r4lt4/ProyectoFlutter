@@ -399,6 +399,96 @@ class S {
       args: [],
     );
   }
+
+  /// `Cantidad de números para portabilidad`
+  String get quantityOfNumbersForPortability {
+    return Intl.message(
+      'Cantidad de números para portabilidad',
+      name: 'quantityOfNumbersForPortability',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cantidad de números nuevos`
+  String get quantityOfNewNumbers {
+    return Intl.message(
+      'Cantidad de números nuevos',
+      name: 'quantityOfNewNumbers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cantidad de anexos`
+  String get numberOfAnnexes {
+    return Intl.message(
+      'Cantidad de anexos',
+      name: 'numberOfAnnexes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cantidad de canales adicionales`
+  String get numberOfAdditionalChannels {
+    return Intl.message(
+      'Cantidad de canales adicionales',
+      name: 'numberOfAdditionalChannels',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cantidad de equipos a instalar`
+  String get numberOfEquipmentToInstall {
+    return Intl.message(
+      'Cantidad de equipos a instalar',
+      name: 'numberOfEquipmentToInstall',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `IP pública`
+  String get ipPublic {
+    return Intl.message(
+      'IP pública',
+      name: 'ipPublic',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Anexos`
+  String get annexes {
+    return Intl.message(
+      'Anexos',
+      name: 'annexes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Canales Extras (Por defecto incluye 10 sin costo)`
+  String get extraChannels {
+    return Intl.message(
+      'Canales Extras (Por defecto incluye 10 sin costo)',
+      name: 'extraChannels',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Teléfonos IP a instalar (No incluye cableado)`
+  String get phoneIPToInstall {
+    return Intl.message(
+      'Teléfonos IP a instalar (No incluye cableado)',
+      name: 'phoneIPToInstall',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
