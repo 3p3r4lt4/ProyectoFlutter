@@ -156,6 +156,65 @@ class QuoterPage extends StatelessWidget {
               ),
               
               _TitleQuoterItem(l10n.additional),
+              Consumer<QuoteController>(
+                builder: (context, controller, _) {
+                  return Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          margin: const EdgeInsets.only(left: MARGIN_SIZE_DEFAULT),
+                          child: Text(
+                            controller.aditionalIPMap['name'],
+                            style: TextStyleApp.caption(),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(2.5),
+                          border: Border.all(
+                            width: 2,
+                            color: controller.isIPPublic ? purpleColor : whiteColor,
+                          )
+                        ),
+                          child: IconButton(
+                            onPressed: () => controller.loadUseIpPublic(true),
+                            icon: Text(
+                              l10n.yes,
+                              style: TextStyleApp.b1(),
+                            ),
+                          ),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(2.5),
+                          border: Border.all(
+                            width: 2,
+                            color: !controller.isIPPublic ? purpleColor : whiteColor,
+                          )
+                        ),
+                          child: IconButton(
+                            onPressed: () => controller.loadUseIpPublic(false),
+                            icon: Text(
+                              l10n.no,
+                              style: TextStyleApp.b1(),
+                            ),
+                          ),
+                      ),
+                      Container(
+                        width: WIDTH_SHORT_TEXFORM,
+                        alignment: Alignment.centerRight,
+                        margin: const EdgeInsets.only(right: MARGIN_SIZE_DEFAULT),
+                          child: Text(
+                            '$CURRENCY_TYPE_SYMBOL ${controller.aditionalIPMap['price']}',
+                            style: TextStyleApp.b1(),
+                          ),
+                      ),
+                      const Divider(),
+                    ],
+                  );
+                }
+              ),
             ],
           ),
         ],
