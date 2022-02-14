@@ -22,11 +22,12 @@ class ThemeTextFormField extends StatelessWidget {
     this.borderRadius = RADIUS_SIZE_SMALL,
     this.width,
     this.maxLines,
-    this.hintColor,
+    this.hintColor = grayColor,
     this.leftWidget,
     this.inputFormatters,
     this.initialValue,
     this.color = grayColor,
+    this.onTap,
     // this.width = MARGIN_SIZE_XXLARGE,
   });
 
@@ -44,11 +45,12 @@ class ThemeTextFormField extends StatelessWidget {
   final double borderRadius;
   final double? width;
   final int? maxLines;
-  final Color? hintColor;
+  final Color hintColor;
   final Widget? leftWidget;
   final List<TextInputFormatter>? inputFormatters;
   final String? initialValue;
   final Color color;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -61,12 +63,11 @@ class ThemeTextFormField extends StatelessWidget {
 
     InputDecoration _buildInputDecoration() {
       return InputDecoration(
-
         alignLabelWithHint: true,
         border: InputBorder.none,
         contentPadding: EdgeInsets.only(
-            top: MARGIN_SIZE_SMALL, 
-            bottom: MARGIN_SIZE_SMALL, 
+            top: 0, 
+            bottom: 0, 
             left: haveRightIcon || haveLeftIcon 
               ? MARGIN_SIZE_SMALL 
               : haveLeftWidget
@@ -84,6 +85,7 @@ class ThemeTextFormField extends StatelessWidget {
           fontSize: MARGIN_SIZE_DEFAULT,
           color: hintColor,
         ),
+        
         suffixIcon: haveRightIcon ? GestureDetector(
           onTap: onRightTap ?? () {},
           child: Padding(
@@ -100,6 +102,7 @@ class ThemeTextFormField extends StatelessWidget {
           onChanged: onChanged,
           onFieldSubmitted: onSubmitted,
           style: TextStyleApp.b1(),
+          onTap: onTap,
           textInputAction: textInputAction,
           obscureText: obscureText,
           cursorColor: greenColor,
