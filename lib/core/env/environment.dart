@@ -16,4 +16,4 @@ const double NUMBERS_FOR_PORTABILITY_PRICE = 10.00; //price unit S/ 10
 const double QUANTITY_ANNEXES_PRICE = 5.00; //price unit S/ 5
 const double QUANTITY_CHANNELS_ADITIONAL_PRICE = 5.00; //price unit S/ 5
 const double EQUIPMENT_TO_INSTALL_PRICE = 15.00; //price unit S/ 15
-const double ADITIONAL_IPPUBLIC_PRICE = 50.00; //price unit S/ 15
+const double ADITIONAL_IPPUBLIC_PRICE = 50.00; //price laundline 50
