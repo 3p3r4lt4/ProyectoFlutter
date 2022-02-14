@@ -19,48 +19,34 @@ class QuoterServerItem extends StatelessWidget {
   final String keyService;
   final QuoteController controller;
 
-  Widget _buildTextFormField(
-    String label, 
-    // String field, 
-    BuildContext context,{
-      Widget? leftWidget,
-      List<TextInputFormatter>? inputFormatters,
-      void Function(String)? onChanged,
-      String? initialValue,
-      TextInputType textInputType = TextInputType.number,
-    }) =>
-    Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Expanded(
           child: Container(
             margin: const EdgeInsets.only(left: MARGIN_SIZE_SMALL),
             child: Text(
-              label,
+              service['name'],
               style: TextStyleApp.caption(),
             ),
           ),
         ),
         ThemeTextFormField(
-          width: (MediaQuery.of(context).size.width - 120)/3,
-          leftWidget: leftWidget,
-          inputFormatters: inputFormatters,
-          onChanged: onChanged,
-          initialValue: initialValue,
-          textInputType: textInputType,
-        )
-      ],
-    );
+          // leftWidget: leftWidget,
+          // inputFormatters: inputFormatters, use decimals
+          // onTap: () => controller.loadServicesQuote(keyService, null),
+          width: (MediaQuery.of(context).size.width - 120) / 3,
+          initialValue: service['quantity'].toString(),
+          textInputType: TextInputType.number,
+          onChanged: (String value) {
+            if (value.isNotEmpty)
+              controller.loadServicesQuote(keyService, value);
+          },
 
-  @override
-  Widget build(BuildContext context) {
-    return _buildTextFormField(
-      service['name'],
-      context,
-      initialValue: service['quantity'].toString(),
-      onChanged: (String value) {
-        if (value.isNotEmpty) controller.loadServicesQuote(keyService, value);
-      }
+        ),
+      ],
     );
   }
 }
