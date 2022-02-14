@@ -8,6 +8,18 @@ class QuoteController extends ChangeNotifier {
 
   ///* Quoter
 
+  //* Aditional
+  Map<String, dynamic> aditionalIPMap = {
+    'quantity' : 0,
+    'price': 0.00
+  };
+  void loadAditionalIPQuote(String value) {
+    final int intValue = int.parse(value);
+    this.aditionalIPMap['quantity'] = intValue;
+    this.aditionalIPMap['price'] = intValue*ADITIONAL_IPPUBLIC_PRICE;
+    notifyListeners();
+  }
+
   //* Installations
   Map<String, dynamic> equipmentToInstallMap = {
     'quantity' : 0,
