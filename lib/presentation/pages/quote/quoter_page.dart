@@ -93,17 +93,21 @@ class QuoterPage extends StatelessWidget {
                   l10n.subTotal, 
                   value: '$CURRENCY_TYPE_SYMBOL  ${doubleToAsFixedDecimals(controller.subTotalBagOfMinutesQuote)}'
                 ),
-                Consumer<QuoteController>(
-                  builder: (context, controller, _) {
-                    return _TitleQuoterItem(l10n.services,isHide: controller.isHideServices,handleAction: () => controller.showOrHideServices());
-                  }
-                ),
-                _TitleQuoterItem(l10n.installations),
-                _TitleQuoterItem(l10n.additional),
               
               ],
             ),
-            
+          ),
+          
+          Column(
+            children: [
+              Consumer<QuoteController>(
+                builder: (context, controller, _) {
+                  return _TitleQuoterItem(l10n.services,isHide: controller.isHideServices,handleAction: () => controller.showOrHideServices());
+                }
+              ),
+              _TitleQuoterItem(l10n.installations),
+              _TitleQuoterItem(l10n.additional),
+            ],
           ),
         ],
       ),
