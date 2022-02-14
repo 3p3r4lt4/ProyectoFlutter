@@ -49,6 +49,7 @@ class ThemeDropDown extends StatelessWidget {
           hint: hint != null ? Text(hint!) : null,
           isExpanded: isExpanded,
           itemHeight: itemHeight,
+          isDense: true,
           value: valueSelected,
           onChanged: onChanged,
           items: listItems,
