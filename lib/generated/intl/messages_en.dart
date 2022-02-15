@@ -69,7 +69,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Cantidad de números nuevos"),
         "quantityOfNumbersForPortability": MessageLookupByLibrary.simpleMessage(
             "Cantidad de números para portabilidad"),
-        "quote": MessageLookupByLibrary.simpleMessage("Cotizar"),
+        "quote": MessageLookupByLibrary.simpleMessage("Cotización"),
+        "quoter": MessageLookupByLibrary.simpleMessage("Cotizar"),
         "rates": MessageLookupByLibrary.simpleMessage("Tarifas"),
         "recurringPaymentOrMonthlyRent": MessageLookupByLibrary.simpleMessage(
             "Pago Recurrente / Renta Mensual"),
@@ -81,6 +82,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "signUp": MessageLookupByLibrary.simpleMessage("Sign up"),
         "subTotal": MessageLookupByLibrary.simpleMessage("Sub Total"),
         "total": MessageLookupByLibrary.simpleMessage("Total"),
+        "totalPerMonth": MessageLookupByLibrary.simpleMessage(
+            "TOTAL RENTA MENSUAL (NO inc. IGV)"),
         "yes": MessageLookupByLibrary.simpleMessage("Si")
       };
 }

@@ -120,11 +120,21 @@ class S {
     );
   }
 
-  /// `Cotizar`
+  /// `Cotización`
   String get quote {
     return Intl.message(
-      'Cotizar',
+      'Cotización',
       name: 'quote',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cotizar`
+  String get quoter {
+    return Intl.message(
+      'Cotizar',
+      name: 'quoter',
       desc: '',
       args: [],
     );
@@ -505,6 +515,16 @@ class S {
     return Intl.message(
       'No',
       name: 'no',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `TOTAL RENTA MENSUAL (NO inc. IGV)`
+  String get totalPerMonth {
+    return Intl.message(
+      'TOTAL RENTA MENSUAL (NO inc. IGV)',
+      name: 'totalPerMonth',
       desc: '',
       args: [],
     );

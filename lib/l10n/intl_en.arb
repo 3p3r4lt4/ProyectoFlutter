@@ -6,7 +6,8 @@
     "needAnAccount": "Necesita una cuenta?",
     "signUp": "Sign up",
     "myQuoter": "Mi Cotizador",
-    "quote": "Cotizar",
+    "quote": "Cotización",
+    "quoter": "Cotizar",
     "services": "Servicios",
     "additional": "Adicionales",
     "server": "Servidor",
@@ -44,5 +45,6 @@
     "extraChannels": "Canales Extras (Por defecto incluye 10 sin costo)",
     "phoneIPToInstall": "Teléfonos IP a instalar (No incluye cableado)",
     "yes": "Si",
-    "no": "No"
+    "no": "No",
+    "totalPerMonth": "TOTAL RENTA MENSUAL (NO inc. IGV)"
 }
