@@ -229,6 +229,28 @@ class QuoterPage extends StatelessWidget {
               const SizedBox(height: MARGIN_SIZE_DEFAULT),
               Consumer<QuoteController>(
                 builder: (context, controller, _) {
+                  return MaterialButton(
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(RADIUS_SIZE_XXXLL)),
+                      elevation: 2,
+                      color: whiteColor,
+                      height: RADIUS_SIZE_XXLARGE,
+                    child: Container(
+                      // width: RADIUS_SIZE_XXLARGE,
+                      // height: RADIUS_SIZE_XXLARGE,
+                      // alignment: Alignment.center,
+                      padding: const EdgeInsets.all(PADDING_SIZE_DEFAULT),
+                      decoration: BoxDecoration(
+                        color: Colors.transparent,
+                        borderRadius: BorderRadius.circular(RADIUS_SIZE_XXLARGE),
+                      ),
+                      child: const Icon(Icons.share, color: purpleColor),
+                    ),
+                    onPressed: () async => await controller.handleShareAllPlatforms()
+                  );
+                }
+              ),
+              Consumer<QuoteController>(
+                builder: (context, controller, _) {
                   return ThemeButton(
                     title: l10n.quote, 
                     onPress: () async => await controller.handleGeneratedPDF()
