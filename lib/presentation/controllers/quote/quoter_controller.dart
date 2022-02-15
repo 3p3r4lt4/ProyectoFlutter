@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:share_plus/share_plus.dart';
 
 import 'package:flxtech/core/env/environment.dart';
 import 'package:flxtech/core/helpers/double_to_as_fixed_decimals.dart';
@@ -12,30 +13,42 @@ class QuoteController extends ChangeNotifier {
 
   S _l10n = S.current;
   ///* Quoter
+  //share All
+  bool pressedShare = true;
+  Future handleShareAllPlatforms() async {
+    pressedShare = false;
+    notifyListeners();
+    await _loadResumenToPpdf();
+    final pdfFile = await PdfQuoterApi.generate(quoterPdf!, tempPDF!);
+    await Share.shareFiles([pdfFile.path]);
+    pressedShare = true;
+    notifyListeners();
+  }
   ///Pdf generated
   Quoter? quoterPdf;
+  //ToDo: Refactor code
   List<List<dynamic>>? tempPDF;
   Future _loadResumenToPpdf() async {
     tempPDF = [
       [
         _l10n.numberOfTelephoneToBeInstalled,
-        equipmentToInstallMap['price']
+        doubleToAsFixedDecimals(equipmentToInstallMap['price']),
       ],
       [
           _l10n.bagOfMinutes,
-          subTotalBagOfMinutesQuote,
+          doubleToAsFixedDecimals(subTotalBagOfMinutesQuote),
       ],
         [
           _l10n.services,
-          subTotalServicesQuote,
+          doubleToAsFixedDecimals(subTotalServicesQuote),
       ],
         [
           _l10n.numberOfTelephoneToBeInstalled,
-          aditionalIPMap['price'],
+          doubleToAsFixedDecimals(aditionalIPMap['price']),
       ],
         [
           _l10n.totalPerMonth,
-          totalPriceQuoter - equipmentToInstallMap['price'],
+          doubleToAsFixedDecimals(totalPriceQuoter - equipmentToInstallMap['price']),
       ],
     ];
     quoterPdf = Quoter(
