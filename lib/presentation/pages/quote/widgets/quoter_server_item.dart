@@ -47,7 +47,7 @@ class QuoterServerItem extends StatelessWidget {
           },
         ),
         Container(
-          width: WIDTH_SHORT_TEXFORM,
+          width: WIDTH_SHORT_TEXT_FORM,
           alignment: Alignment.centerRight,
           margin: const EdgeInsets.only(right: MARGIN_SIZE_DEFAULT),
             child: Text(

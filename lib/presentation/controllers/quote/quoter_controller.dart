@@ -18,7 +18,7 @@ class QuoteController extends ChangeNotifier {
   Future handleShareAllPlatforms() async {
     pressedShare = false;
     notifyListeners();
-    await _loadResumenToPpdf();
+    await _loadResumenToPdf();
     final pdfFile = await PdfQuoterApi.generate(quoterPdf!, tempPDF!);
     await Share.shareFiles([pdfFile.path]);
     pressedShare = true;
@@ -28,7 +28,7 @@ class QuoteController extends ChangeNotifier {
   Quoter? quoterPdf;
   //ToDo: Refactor code
   List<List<dynamic>>? tempPDF;
-  Future _loadResumenToPpdf() async {
+  Future _loadResumenToPdf() async {
     tempPDF = [
       [
         _l10n.numberOfTelephoneToBeInstalled,
@@ -44,7 +44,7 @@ class QuoteController extends ChangeNotifier {
       ],
         [
           _l10n.numberOfTelephoneToBeInstalled,
-          doubleToAsFixedDecimals(aditionalIPMap['price']),
+          doubleToAsFixedDecimals(additionalIPMap['price']),
       ],
         [
           _l10n.totalPerMonth,
@@ -67,7 +67,7 @@ class QuoteController extends ChangeNotifier {
         ),
         QuoterItem(
           description: _l10n.numberOfTelephoneToBeInstalled,
-          price: aditionalIPMap['price'],
+          price: additionalIPMap['price'],
         ),
         QuoterItem(
           description: _l10n.totalPerMonth,
@@ -78,7 +78,7 @@ class QuoteController extends ChangeNotifier {
   }
 
   Future handleGeneratedPDF() async {
-    await _loadResumenToPpdf();
+    await _loadResumenToPdf();
     final pdfFile = await PdfQuoterApi.generate(quoterPdf!, tempPDF!);
     PdfService.openFile(pdfFile);
   } 
@@ -86,8 +86,8 @@ class QuoteController extends ChangeNotifier {
   ///Actions widgets
   double totalPriceQuoter = 0.00;
 
-  //* Aditional
-  Map<String, dynamic> aditionalIPMap = {
+  //* Additional
+  Map<String, dynamic> additionalIPMap = {
     'quantity' : 0,
     'price': 0.00,
     'name': 'IP pública'
@@ -96,18 +96,18 @@ class QuoteController extends ChangeNotifier {
   void loadUseIpPublic(bool value) {
     isIPPublic = value;
     isIPPublic 
-      ? totalPriceQuoter += ADITIONAL_IPPUBLIC_PRICE
-      : totalPriceQuoter -= ADITIONAL_IPPUBLIC_PRICE;
-    aditionalIPMap['price'] = isIPPublic ? ADITIONAL_IPPUBLIC_PRICE : 0.00;
-    aditionalIPMap['price'] = isIPPublic ? ADITIONAL_IPPUBLIC_PRICE : 0.00;
+      ? totalPriceQuoter += ADDITIONAL_IP_PUBLIC_PRICE
+      : totalPriceQuoter -= ADDITIONAL_IP_PUBLIC_PRICE;
+    additionalIPMap['price'] = isIPPublic ? ADDITIONAL_IP_PUBLIC_PRICE : 0.00;
+    additionalIPMap['price'] = isIPPublic ? ADDITIONAL_IP_PUBLIC_PRICE : 0.00;
     notifyListeners();
   }
 
   //toDo: unused
-  void loadAditionalIPQuote(String value) {
+  void loadAdditionalIPQuote(String value) {
     final int intValue = int.parse(value);
-    this.aditionalIPMap['quantity'] = intValue;
-    this.aditionalIPMap['price'] = intValue*ADITIONAL_IPPUBLIC_PRICE;
+    this.additionalIPMap['quantity'] = intValue;
+    this.additionalIPMap['price'] = intValue*ADDITIONAL_IP_PUBLIC_PRICE;
     notifyListeners();
   }
 
@@ -225,7 +225,7 @@ class QuoteController extends ChangeNotifier {
   void loadQuantityFeedMap() {
     // 0 50 100	200	300 ... 10000	11000	12000	13000	14000 15000	... 50000
     // 1 + 1 + 100 + 40 = 142 iterations
-    for (var i = 0; i < ITERATIONS_QUANITY_FEED; i++) {
+    for (var i = 0; i < ITERATIONS_QUANTITY_FEED; i++) {
       this.quantityFeedMap[i] = i == 0 ? 0 : (i == 1 ? 50 : (i <= 101 ? (i-1)*100 : ((i-101)*1000+10000)));
     }
     // print(this.quantityFeedMap);

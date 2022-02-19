@@ -22,7 +22,7 @@ Map<String, double>  percentageDiscountMap = {
 
   //*Feed bag of minutes
 //  S/.0.0459 S/.0.0954 S/.0.1369 S/.0.9350 S/.0.2499 S/.0.4921 S/.1.0000 S/.1.5957 S/.6.3500 S/.10.0000
-// Fijo Local	Fijo Nacional	Móviles	Fijo Rural	LDi1	LDi2	LDi3	LDi4	LDi5	LDi  Espercial
+// Fijo Local	Fijo Nacional	Móviles	Fijo Rural	LDi1	LDi2	LDi3	LDi4	LDi5	LDi  Especial
 Map<String, Map<String, dynamic>> nameWithFeedMap = {
   'local_landline': {
     'name': 'Fijo Local',
@@ -61,7 +61,7 @@ Map<String, Map<String, dynamic>> nameWithFeedMap = {
     'feed': 6.3500
   },
   'ldi_special': {
-    'name': 'LDi Espercial',
+    'name': 'LDi Especial',
     'feed': 10.0000
   }
 };
@@ -80,8 +80,8 @@ Map<String, Map<String, dynamic>> serverWithFeedMap = {
     'name': _l10n.numberOfAnnexes,
     'feed': QUANTITY_ANNEXES_PRICE
   },
-  'aditional_channels': {
+  'additional_channels': {
     'name': _l10n.numberOfAdditionalChannels,
-    'feed': QUANTITY_CHANNELS_ADITIONAL_PRICE
+    'feed': QUANTITY_CHANNELS_ADDITIONAL_PRICE
   },
 };

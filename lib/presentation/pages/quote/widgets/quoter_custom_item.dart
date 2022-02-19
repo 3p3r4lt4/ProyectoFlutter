@@ -11,13 +11,13 @@ class QuoterCustomItem extends StatelessWidget {
     this.item, {
     this.onTap,
     required this.controller,
-    this.isAditional = true,
+    this.isAdditional = true,
   });
 
   final Map<String, dynamic> item;
   final Function? onTap;
   final QuoteController controller;
-  final bool isAditional;
+  final bool isAdditional;
 
   @override
   Widget build(BuildContext context) {
@@ -39,14 +39,14 @@ class QuoterCustomItem extends StatelessWidget {
           textInputType: TextInputType.number,
           onChanged: (String value) {
             if (value.isNotEmpty) {
-              isAditional
-                ? controller.loadAditionalIPQuote(value)
+              isAdditional
+                ? controller.loadAdditionalIPQuote(value)
                 : controller.loadInstallationsQuote(value);
             }
           },
         ),
         Container(
-          width: WIDTH_SHORT_TEXFORM,
+          width: WIDTH_SHORT_TEXT_FORM,
           alignment: Alignment.centerRight,
           margin: const EdgeInsets.only(right: MARGIN_SIZE_DEFAULT),
             child: Text(

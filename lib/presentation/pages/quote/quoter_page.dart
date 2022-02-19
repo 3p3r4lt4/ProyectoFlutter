@@ -14,7 +14,7 @@ import 'package:flxtech/presentation/pages/quote/widgets/quoter_custom_item.dart
 import 'package:flxtech/presentation/controllers/quote/quoter_controller.dart';
 import 'package:flxtech/presentation/widgets/scaffold_container.dart';
 import 'package:flxtech/presentation/widgets/theme_dropdown.dart';
-import 'package:flxtech/presentation/pages/quote/widgets/resument_total_item.dart';
+import 'package:flxtech/presentation/pages/quote/widgets/resumen_total_item.dart';
 
 class QuoterPage extends StatelessWidget {
   const QuoterPage();
@@ -75,7 +75,7 @@ class QuoterPage extends StatelessWidget {
                 !controller.isHideBagOfMinutes
                   ? DataTable(
                       sortColumnIndex: 2,
-                      dataRowHeight: HEIGHT_DATAROW,
+                      dataRowHeight: HEIGHT_DATA_ROW,
                       showBottomBorder: false,
                       // columnSpacing: 100,
                       columns: List.generate(
@@ -149,7 +149,7 @@ class QuoterPage extends StatelessWidget {
                       QuoterCustomItem(
                         controller.equipmentToInstallMap, 
                         controller: controller,
-                        isAditional: false,
+                        isAdditional: false,
                       ),
                       const Divider(),
                     ],
@@ -166,7 +166,7 @@ class QuoterPage extends StatelessWidget {
                         child: Container(
                           margin: const EdgeInsets.only(left: MARGIN_SIZE_DEFAULT),
                           child: Text(
-                            controller.aditionalIPMap['name'],
+                            controller.additionalIPMap['name'],
                             style: TextStyleApp.caption(),
                           ),
                         ),
@@ -204,11 +204,11 @@ class QuoterPage extends StatelessWidget {
                           ),
                       ),
                       Container(
-                        width: WIDTH_SHORT_TEXFORM,
+                        width: WIDTH_SHORT_TEXT_FORM,
                         alignment: Alignment.centerRight,
                         margin: const EdgeInsets.only(right: MARGIN_SIZE_DEFAULT),
                           child: Text(
-                            '$CURRENCY_TYPE_SYMBOL ${controller.aditionalIPMap['price']}',
+                            '$CURRENCY_TYPE_SYMBOL ${controller.additionalIPMap['price']}',
                             style: TextStyleApp.b1(),
                           ),
                       ),
@@ -281,7 +281,7 @@ class _TitleQuoterItem extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        const SizedBox(width: WIDTH_ICONBUTTON),
+        const SizedBox(width: WIDTH_ICON_BUTTON),
         const Expanded(child: SizedBox()),
         Text(
           title, 
