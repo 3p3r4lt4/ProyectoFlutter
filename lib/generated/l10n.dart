@@ -170,6 +170,16 @@ class S {
     );
   }
 
+  /// `Servidores`
+  String get servers {
+    return Intl.message(
+      'Servidores',
+      name: 'servers',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Internet`
   String get internet {
     return Intl.message(
