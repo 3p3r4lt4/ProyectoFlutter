@@ -63,7 +63,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Teléfonos IP a instalar (No incluye cableado)"),
         "price": MessageLookupByLibrary.simpleMessage("Precio"),
         "pricePerServer":
-            MessageLookupByLibrary.simpleMessage("Precio por servidor"),
+            MessageLookupByLibrary.simpleMessage("Precio por Servidor"),
         "quantity": MessageLookupByLibrary.simpleMessage("Cantidad"),
         "quantityOfNewNumbers":
             MessageLookupByLibrary.simpleMessage("Cantidad de números nuevos"),

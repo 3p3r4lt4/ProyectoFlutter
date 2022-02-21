@@ -410,10 +410,10 @@ class S {
     );
   }
 
-  /// `Precio por servidor`
+  /// `Precio por Servidor`
   String get pricePerServer {
     return Intl.message(
-      'Precio por servidor',
+      'Precio por Servidor',
       name: 'pricePerServer',
       desc: '',
       args: [],
