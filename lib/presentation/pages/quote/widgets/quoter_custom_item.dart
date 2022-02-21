@@ -12,12 +12,14 @@ class QuoterCustomItem extends StatelessWidget {
     this.onTap,
     required this.controller,
     this.isAdditional = true,
+    this.textEditingController,
   });
 
   final Map<String, dynamic> item;
   final Function? onTap;
   final QuoteController controller;
   final bool isAdditional;
+  final TextEditingController? textEditingController;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +37,10 @@ class QuoterCustomItem extends StatelessWidget {
         ),
         ThemeTextFormField(
           width: (MediaQuery.of(context).size.width - 120) / 3,
-          initialValue: item['quantity'].toString(),
+          initialValue: textEditingController == null
+            ? item['quantity'].toString()
+            : null,
+          textEditingController: textEditingController,
           textInputType: TextInputType.number,
           onChanged: (String value) {
             if (value.isNotEmpty) {
