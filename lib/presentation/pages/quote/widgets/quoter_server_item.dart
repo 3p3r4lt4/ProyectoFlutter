@@ -11,14 +11,16 @@ class QuoterServerItem extends StatelessWidget {
   const QuoterServerItem(
     this.keyService, {
     this.onTap,
-    required this.service,
+    required this.server,
     required this.controller,
+    required this.textEditingController,
   });
 
-  final Map<String, dynamic> service;
+  final Map<String, dynamic> server;
   final Function? onTap;
   final String keyService;
   final QuoteController controller;
+  final TextEditingController textEditingController;
 
   @override
   Widget build(BuildContext context) {
@@ -29,18 +31,16 @@ class QuoterServerItem extends StatelessWidget {
           child: Container(
             margin: const EdgeInsets.only(left: MARGIN_SIZE_DEFAULT),
             child: Text(
-              service['name'],
+              server['name'],
               style: TextStyleApp.caption(),
             ),
           ),
         ),
         ThemeTextFormField(
-          // leftWidget: leftWidget,
-          // inputFormatters: inputFormatters, use decimals
-          // onTap: () => controller.loadServicesQuote(keyService, null),
           width: (MediaQuery.of(context).size.width - 120) / 3,
-          initialValue: service['quantity'].toString(),
+          // initialValue: server['quantity'].toString(),
           textInputType: TextInputType.number,
+          textEditingController: textEditingController,
           onChanged: (String value) {
             if (value.isNotEmpty)
               controller.loadServicesQuote(keyService, value);
@@ -51,7 +51,7 @@ class QuoterServerItem extends StatelessWidget {
           alignment: Alignment.centerRight,
           margin: const EdgeInsets.only(right: MARGIN_SIZE_DEFAULT),
             child: Text(
-              '$CURRENCY_TYPE_SYMBOL ${service['price']}',
+              '$CURRENCY_TYPE_SYMBOL ${server['price']}',
               style: TextStyleApp.b1(),
             ),
         ),
