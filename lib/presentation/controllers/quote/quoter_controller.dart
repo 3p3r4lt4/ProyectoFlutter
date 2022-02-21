@@ -13,6 +13,22 @@ class QuoteController extends ChangeNotifier {
 
   S _l10n = S.current;
   ///* Quoter
+  // clean Quoter All
+  void handleCleanQuoter() {
+    loadBagOfMinutesQuoteInitial();
+    this.subTotalBagOfMinutesQuote = 0.00;
+    loadServicesQuoteInitial();
+    this.subTotalServicesQuote = 0.00;
+    isIPPublic = false;
+    loadUseIpPublic(false);
+    equipmentToInstallMap = {
+      'quantity' : 0,
+      'price': 0.00,
+      'name': 'Cantidad de equipos a instalar'
+    };
+    this.totalPriceQuoter = 0.00;
+    notifyListeners();
+  }
   //share All
   bool pressedShare = true;
   Future handleShareAllPlatforms() async {
@@ -109,7 +125,7 @@ class QuoteController extends ChangeNotifier {
   double subTotalServicesQuote = 0.00;
 
   void loadServicesQuoteInitial() {
-    servicesQuote.addAll(serverWithFeedMap);
+    if(servicesQuote.isEmpty) servicesQuote.addAll(serverWithFeedMap);
     for (var i = 0; i < servicesQuote.length; i++) {
       final String key = servicesQuote.keys.elementAt(i);
       servicesQuote[key]!['quantity'] = 0;
@@ -137,7 +153,7 @@ class QuoteController extends ChangeNotifier {
   double subTotalBagOfMinutesQuote = 0.00;
 
   void loadBagOfMinutesQuoteInitial() {
-    bagOfMinutesQuote.addAll(nameWithFeedMap);
+    if(bagOfMinutesQuote.isEmpty) bagOfMinutesQuote.addAll(nameWithFeedMap);
     for (var i = 0; i < bagOfMinutesQuote.length; i++) {
       final String key = bagOfMinutesQuote.keys.elementAt(i);
       bagOfMinutesQuote[key]!['quantity'] = 0;
