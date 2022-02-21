@@ -124,6 +124,7 @@ class QuoterPage extends StatelessWidget {
                             key,
                             server: server,
                             controller: controller,
+                            textEditingController: controller.serversEditingControllers[index],
                           );
                         }),
                       )
@@ -228,37 +229,37 @@ class QuoterPage extends StatelessWidget {
               ),
               const Divider(),
               const SizedBox(height: MARGIN_SIZE_DEFAULT),
-              quoteController.totalPriceQuoter > 0
-                ? Consumer<QuoteController>(
+                Consumer<QuoteController>(
                     builder: (context, controller, _) {
-                      return MaterialButton(
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(RADIUS_SIZE_XXXLL)),
-                          elevation: 2,
-                          color: whiteColor,
-                          height: RADIUS_SIZE_XXLARGE,
-                        child: Container(
-                          padding: const EdgeInsets.all(PADDING_SIZE_DEFAULT),
-                          decoration: BoxDecoration(
-                            color: Colors.transparent,
-                            borderRadius: BorderRadius.circular(RADIUS_SIZE_XXLARGE),
-                          ),
-                          child: const Icon(Icons.share, color: purpleColor),
-                        ),
-                        onPressed: () async => controller.pressedShare ? await controller.handleShareAllPlatforms() : null,
-                      );
+                      return controller.totalPriceQuoter > 0
+                        ? MaterialButton(
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(RADIUS_SIZE_XXXLL)),
+                              elevation: 2,
+                              color: whiteColor,
+                              height: RADIUS_SIZE_XXLARGE,
+                            child: Container(
+                              padding: const EdgeInsets.all(PADDING_SIZE_DEFAULT),
+                              decoration: BoxDecoration(
+                                color: Colors.transparent,
+                                borderRadius: BorderRadius.circular(RADIUS_SIZE_XXLARGE),
+                              ),
+                              child: const Icon(Icons.share, color: purpleColor),
+                            ),
+                            onPressed: () async => controller.pressedShare ? await controller.handleShareAllPlatforms() : null,
+                          )
+                        : const SizedBox();
                     }
-                  )
-                : const SizedBox(),
-              quoteController.totalPriceQuoter > 0
-                ? Consumer<QuoteController>(
-                    builder: (context, controller, _) {
-                      return ThemeButton(
-                        title: l10n.quote, 
-                        onPress: () async => await controller.handleGeneratedPDF()
-                      );
-                    }
-                  )
-                : const SizedBox(),
+                  ),
+                Consumer<QuoteController>(
+                  builder: (context, controller, _) {
+                    return controller.totalPriceQuoter > 0
+                      ? ThemeButton(
+                          title: l10n.quote, 
+                          onPress: () async => await controller.handleGeneratedPDF()
+                        )
+                      : const SizedBox();
+                  }
+                ),
             ],
           ),
         ],
