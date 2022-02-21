@@ -33,23 +33,23 @@ class QuoteController extends ChangeNotifier {
       items: [
         QuoterItem(
           description: _l10n.numberOfTelephoneToBeInstalled,
-          price: equipmentToInstallMap['price'],
+          price: doubleToAsFixedDecimals(equipmentToInstallMap['price']),
         ),
         QuoterItem(
           description: _l10n.bagOfMinutes,
-          price: subTotalBagOfMinutesQuote,
+          price: doubleToAsFixedDecimals(subTotalBagOfMinutesQuote),
         ),
         QuoterItem(
           description: _l10n.server,
-          price: subTotalServicesQuote,
+          price: doubleToAsFixedDecimals(subTotalServicesQuote),
         ),
         QuoterItem(
           description: _l10n.numberOfTelephoneToBeInstalled,
-          price: additionalIPMap['price'],
+          price: doubleToAsFixedDecimals(additionalIPMap['price']),
         ),
         QuoterItem(
           description: _l10n.totalPerMonth,
-          price: totalPriceQuoter - equipmentToInstallMap['price'],
+          price: doubleToAsFixedDecimals(totalPriceQuoter - equipmentToInstallMap['price']),
         ),
       ]
     );
