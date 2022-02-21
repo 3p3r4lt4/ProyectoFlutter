@@ -55,13 +55,18 @@ class QuoterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final S l10n = S.current;
+    final QuoteController quoteController = context.read<QuoteController>();
     return ScaffoldContainer(
       l10n.myQuoter,
       haveReturn: false,
       isCustomAppBar: true,
       rightIcon: Icons.delete,
-      rightPressed: () => print('delete'),
+      rightPressed: () {
+        FocusScope.of(context).requestFocus(FocusNode());
+        quoteController.handleCleanQuoter();
+      },
       body: ListView(
+        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         physics: const BouncingScrollPhysics(),
         children: [
           Consumer<QuoteController>(
@@ -224,36 +229,37 @@ class QuoterPage extends StatelessWidget {
               ),
               const Divider(),
               const SizedBox(height: MARGIN_SIZE_DEFAULT),
-              Consumer<QuoteController>(
-                builder: (context, controller, _) {
-                  return MaterialButton(
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(RADIUS_SIZE_XXXLL)),
-                      elevation: 2,
-                      color: whiteColor,
-                      height: RADIUS_SIZE_XXLARGE,
-                    child: Container(
-                      // width: RADIUS_SIZE_XXLARGE,
-                      // height: RADIUS_SIZE_XXLARGE,
-                      // alignment: Alignment.center,
-                      padding: const EdgeInsets.all(PADDING_SIZE_DEFAULT),
-                      decoration: BoxDecoration(
-                        color: Colors.transparent,
-                        borderRadius: BorderRadius.circular(RADIUS_SIZE_XXLARGE),
-                      ),
-                      child: const Icon(Icons.share, color: purpleColor),
-                    ),
-                    onPressed: () async => await controller.handleShareAllPlatforms()
-                  );
-                }
-              ),
-              Consumer<QuoteController>(
-                builder: (context, controller, _) {
-                  return ThemeButton(
-                    title: l10n.quote, 
-                    onPress: () async => await controller.handleGeneratedPDF()
-                  );
-                }
-              ),
+              quoteController.totalPriceQuoter > 0
+                ? Consumer<QuoteController>(
+                    builder: (context, controller, _) {
+                      return MaterialButton(
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(RADIUS_SIZE_XXXLL)),
+                          elevation: 2,
+                          color: whiteColor,
+                          height: RADIUS_SIZE_XXLARGE,
+                        child: Container(
+                          padding: const EdgeInsets.all(PADDING_SIZE_DEFAULT),
+                          decoration: BoxDecoration(
+                            color: Colors.transparent,
+                            borderRadius: BorderRadius.circular(RADIUS_SIZE_XXLARGE),
+                          ),
+                          child: const Icon(Icons.share, color: purpleColor),
+                        ),
+                        onPressed: () async => controller.pressedShare ? await controller.handleShareAllPlatforms() : null,
+                      );
+                    }
+                  )
+                : const SizedBox(),
+              quoteController.totalPriceQuoter > 0
+                ? Consumer<QuoteController>(
+                    builder: (context, controller, _) {
+                      return ThemeButton(
+                        title: l10n.quote, 
+                        onPress: () async => await controller.handleGeneratedPDF()
+                      );
+                    }
+                  )
+                : const SizedBox(),
             ],
           ),
         ],
