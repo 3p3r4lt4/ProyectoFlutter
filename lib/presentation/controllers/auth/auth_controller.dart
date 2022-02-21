@@ -12,6 +12,7 @@ class AuthController extends ChangeNotifier {
       context.read<QuoteController>().loadRangeFeedMap();
       context.read<QuoteController>().loadBagOfMinutesQuoteInitial();
       context.read<QuoteController>().loadServicesQuoteInitial();
+      context.read<QuoteController>().loadServersEditingControllers();
     WidgetsBinding.instance!.addPostFrameCallback((_) {
       Navigator.pushNamedAndRemoveUntil(
       context,
