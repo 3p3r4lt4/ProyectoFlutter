@@ -26,6 +26,9 @@ class QuoteController extends ChangeNotifier {
       'price': 0.00,
       'name': 'Cantidad de equipos a instalar'
     };
+    this.equipmentToInstallController = TextEditingController(
+      text: '0'
+    );
     this.totalPriceQuoter = 0.00;
     notifyListeners();
   }
@@ -111,6 +114,9 @@ class QuoteController extends ChangeNotifier {
     'price': 0.00,
     'name': 'Cantidad de equipos a instalar'
   };
+  TextEditingController equipmentToInstallController = TextEditingController(
+    text: '0'
+  );
   void loadInstallationsQuote(String value) {
     final int intValue = int.parse(value);
     this.equipmentToInstallMap['quantity'] = intValue;
