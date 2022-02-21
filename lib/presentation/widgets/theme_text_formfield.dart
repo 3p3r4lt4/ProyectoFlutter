@@ -85,7 +85,6 @@ class ThemeTextFormField extends StatelessWidget {
           fontSize: MARGIN_SIZE_DEFAULT,
           color: hintColor,
         ),
-        
         suffixIcon: haveRightIcon ? GestureDetector(
           onTap: onRightTap ?? () {},
           child: Padding(
@@ -107,6 +106,7 @@ class ThemeTextFormField extends StatelessWidget {
           obscureText: obscureText,
           cursorColor: greenColor,
           maxLines: maxLines,
+          controller: textEditingController,
           initialValue: initialValue,
           inputFormatters: inputFormatters,
           validator: validator ?? (String? value) {
