@@ -18,6 +18,7 @@ class QuoteController extends ChangeNotifier {
     loadBagOfMinutesQuoteInitial();
     this.subTotalBagOfMinutesQuote = 0.00;
     loadServicesQuoteInitial();
+    loadServersEditingControllers();
     this.subTotalServicesQuote = 0.00;
     isIPPublic = false;
     loadUseIpPublic(false);
@@ -59,11 +60,11 @@ class QuoteController extends ChangeNotifier {
           price: doubleToAsFixedDecimals(subTotalBagOfMinutesQuote),
         ),
         QuoterItem(
-          description: _l10n.server,
+          description: _l10n.pricePerServer,
           price: doubleToAsFixedDecimals(subTotalServicesQuote),
         ),
         QuoterItem(
-          description: _l10n.numberOfTelephoneToBeInstalled,
+          description: _l10n.additional,
           price: doubleToAsFixedDecimals(additionalIPMap['price']),
         ),
         QuoterItem(
@@ -129,6 +130,15 @@ class QuoteController extends ChangeNotifier {
   //* Servers
   Map<String, Map<String, dynamic>> servicesQuote = Map();
   double subTotalServicesQuote = 0.00;
+
+  List<TextEditingController> serversEditingControllers = <TextEditingController>[];
+  void loadServersEditingControllers() {
+    serversEditingControllers = <TextEditingController>[];
+    for (var i = 0; i < serverWithFeedMap.length; i++) {
+      serversEditingControllers.add(TextEditingController(text: '0'));
+    }
+    notifyListeners();
+  }
 
   void loadServicesQuoteInitial() {
     if(servicesQuote.isEmpty) servicesQuote.addAll(serverWithFeedMap);
