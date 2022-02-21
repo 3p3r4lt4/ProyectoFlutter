@@ -119,10 +119,10 @@ class QuoterPage extends StatelessWidget {
                     ? Column(
                         children: List.generate(controller.servicesQuote.length, (index) {
                           final String key = controller.servicesQuote.keys.elementAt(index);
-                          final Map<String, dynamic> service = controller.servicesQuote[key]!;
+                          final Map<String, dynamic> server = controller.servicesQuote[key]!;
                           return QuoterServerItem(
                             key,
-                            service: service,
+                            server: server,
                             controller: controller,
                           );
                         }),
@@ -145,18 +145,17 @@ class QuoterPage extends StatelessWidget {
               ),
               _TitleQuoterItem(l10n.installations),
               Consumer<QuoteController>(
-                builder: (context, controller, _) {
-                  return Column(
+                builder: (context, controller, _) => Column(
                     children: [
                       QuoterCustomItem(
                         controller.equipmentToInstallMap, 
                         controller: controller,
                         isAdditional: false,
+                        textEditingController: controller.equipmentToInstallController,
                       ),
                       const Divider(),
                     ],
-                  );
-                }
+                  )
               ),
               
               _TitleQuoterItem(l10n.additional),
