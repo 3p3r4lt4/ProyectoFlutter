@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
 
+import 'package:flxtech/generated/l10n.dart';
 import 'package:flxtech/core/env/environment.dart';
-import 'package:flxtech/core/helpers/double_to_as_fixed_decimals.dart';
-import 'package:flxtech/core/helpers/pdf/generated_pdf.dart';
-import 'package:flxtech/core/helpers/pdf/pdf_service.dart';
 import 'package:flxtech/data/local/dictionaries.dart';
 import 'package:flxtech/data/models/quoter_model.dart';
-import 'package:flxtech/generated/l10n.dart';
+import 'package:flxtech/core/helpers/pdf/pdf_service.dart';
+import 'package:flxtech/core/helpers/pdf/generated_pdf.dart';
+import 'package:flxtech/core/helpers/double_to_as_fixed_decimals.dart';
 
 class QuoteController extends ChangeNotifier {
 
@@ -19,7 +19,7 @@ class QuoteController extends ChangeNotifier {
     pressedShare = false;
     notifyListeners();
     await _loadResumenToPdf();
-    final pdfFile = await PdfQuoterApi.generate(quoterPdf!, tempPDF!);
+    final pdfFile = await PdfQuoterApi.generate(quoterPdf!);
     await Share.shareFiles([pdfFile.path]);
     pressedShare = true;
     notifyListeners();
@@ -27,30 +27,8 @@ class QuoteController extends ChangeNotifier {
   ///Pdf generated
   Quoter? quoterPdf;
   //ToDo: Refactor code
-  List<List<dynamic>>? tempPDF;
+  List<List<dynamic>> tempPDF = [];
   Future _loadResumenToPdf() async {
-    tempPDF = [
-      [
-        _l10n.numberOfTelephoneToBeInstalled,
-        doubleToAsFixedDecimals(equipmentToInstallMap['price']),
-      ],
-      [
-          _l10n.bagOfMinutes,
-          doubleToAsFixedDecimals(subTotalBagOfMinutesQuote),
-      ],
-        [
-          _l10n.services,
-          doubleToAsFixedDecimals(subTotalServicesQuote),
-      ],
-        [
-          _l10n.numberOfTelephoneToBeInstalled,
-          doubleToAsFixedDecimals(additionalIPMap['price']),
-      ],
-        [
-          _l10n.totalPerMonth,
-          doubleToAsFixedDecimals(totalPriceQuoter - equipmentToInstallMap['price']),
-      ],
-    ];
     quoterPdf = Quoter(
       items: [
         QuoterItem(
@@ -62,7 +40,7 @@ class QuoteController extends ChangeNotifier {
           price: subTotalBagOfMinutesQuote,
         ),
         QuoterItem(
-          description: _l10n.services,
+          description: _l10n.server,
           price: subTotalServicesQuote,
         ),
         QuoterItem(
@@ -79,7 +57,7 @@ class QuoteController extends ChangeNotifier {
 
   Future handleGeneratedPDF() async {
     await _loadResumenToPdf();
-    final pdfFile = await PdfQuoterApi.generate(quoterPdf!, tempPDF!);
+    final pdfFile = await PdfQuoterApi.generate(quoterPdf!);
     PdfService.openFile(pdfFile);
   } 
 
@@ -126,7 +104,7 @@ class QuoteController extends ChangeNotifier {
     notifyListeners();
   }
 
-  //* Services
+  //* Servers
   Map<String, Map<String, dynamic>> servicesQuote = Map();
   double subTotalServicesQuote = 0.00;
 
@@ -196,9 +174,9 @@ class QuoteController extends ChangeNotifier {
     isHideBagOfMinutes = !isHideBagOfMinutes;
     notifyListeners();
   }
-  bool isHideServices = false;
+  bool isHideServers = false;
   void showOrHideServices() {
-    isHideServices = !isHideServices;
+    isHideServers = !isHideServers;
     notifyListeners();
   }
 
