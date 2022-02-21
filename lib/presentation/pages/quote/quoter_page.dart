@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:flxtech/data/local/dictionaries.dart';
-import 'package:flxtech/core/theme/colors_app.dart';
-import 'package:flxtech/core/env/environment.dart';
-import 'package:flxtech/core/helpers/double_to_as_fixed_decimals.dart';
-import 'package:flxtech/core/style/text_style_app.dart';
-import 'package:flxtech/core/values/dimensions.dart';
 import 'package:flxtech/generated/l10n.dart';
+import 'package:flxtech/core/env/environment.dart';
+import 'package:flxtech/core/theme/colors_app.dart';
+import 'package:flxtech/core/values/dimensions.dart';
+import 'package:flxtech/data/local/dictionaries.dart';
+import 'package:flxtech/core/style/text_style_app.dart';
+import 'package:flxtech/presentation/widgets/theme_dropdown.dart';
+import 'package:flxtech/presentation/widgets/scaffold_container.dart';
+import 'package:flxtech/core/helpers/double_to_as_fixed_decimals.dart';
 import 'package:flxtech/presentation/widgets/buttons/theme_button.dart';
+import 'package:flxtech/presentation/controllers/quote/quoter_controller.dart';
 import 'package:flxtech/presentation/pages/quote/widgets/quoter_server_item.dart';
 import 'package:flxtech/presentation/pages/quote/widgets/quoter_custom_item.dart';
-import 'package:flxtech/presentation/controllers/quote/quoter_controller.dart';
-import 'package:flxtech/presentation/widgets/scaffold_container.dart';
-import 'package:flxtech/presentation/widgets/theme_dropdown.dart';
 import 'package:flxtech/presentation/pages/quote/widgets/resumen_total_item.dart';
 
 class QuoterPage extends StatelessWidget {
@@ -59,8 +59,8 @@ class QuoterPage extends StatelessWidget {
       l10n.myQuoter,
       haveReturn: false,
       isCustomAppBar: true,
-      rightIcon: Icons.help_outline_outlined,
-      rightPressed: () => print('help'),
+      rightIcon: Icons.delete,
+      rightPressed: () => print('delete'),
       body: ListView(
         physics: const BouncingScrollPhysics(),
         children: [
@@ -106,13 +106,11 @@ class QuoterPage extends StatelessWidget {
           Column(
             children: [
               Consumer<QuoteController>(
-                builder: (context, controller, _) {
-                  return _TitleQuoterItem(l10n.services,isHide: controller.isHideServices,handleAction: () => controller.showOrHideServices());
-                }
+                builder: (context, controller, _) => _TitleQuoterItem(l10n.servers,isHide: controller.isHideServers,handleAction: () => controller.showOrHideServices())
               ),
               Consumer<QuoteController>(
-                builder: (context, controller, _) {
-                  return controller.isHideServices
+                builder: (context, controller, _) 
+                  => !controller.isHideServers
                     ? Column(
                         children: List.generate(controller.servicesQuote.length, (index) {
                           final String key = controller.servicesQuote.keys.elementAt(index);
@@ -124,8 +122,7 @@ class QuoterPage extends StatelessWidget {
                           );
                         }),
                       )
-                    : const SizedBox(height: MARGIN_SIZE_SMALL);
-                }
+                    : const SizedBox(height: MARGIN_SIZE_SMALL)
               ),
               const SizedBox(height: MARGIN_SIZE_SMALL),
               Consumer<QuoteController>(
