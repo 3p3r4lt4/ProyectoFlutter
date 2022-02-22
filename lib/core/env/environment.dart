@@ -1,3 +1,5 @@
+///* App feature
+const String URI_BASE = "http://202201.api.asterisk360.com/softswitch-api/v3/";
 
 //*Ui
 const double WIDTH_DROPDOWN = 12;
