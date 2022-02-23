@@ -6,11 +6,10 @@ import 'package:flxtech/generated/l10n.dart';
 import 'package:flxtech/core/router/pages.dart';
 import 'package:flxtech/presentation/controllers/auth/auth_controller.dart';
 import 'package:flxtech/presentation/controllers/quote/quoter_controller.dart';
-import 'package:flxtech/presentation/pages/auth/signin_page.dart';
+import 'package:flxtech/presentation/controllers/menu/menu_controller.dart';
+import 'package:flxtech/presentation/pages/auth/sign_in_page.dart';
 
-void main() {
-  runApp(const FLXTech());
-}
+void main() => runApp(const FLXTech());
 
 class FLXTech extends StatelessWidget {
   const FLXTech();
@@ -21,6 +20,7 @@ class FLXTech extends StatelessWidget {
       providers: [
         ChangeNotifierProvider<AuthController>(create: (_) => AuthController()),
         ChangeNotifierProvider<QuoteController>(create: (_) => QuoteController()),
+        ChangeNotifierProvider<MenuController>(create: (_) => MenuController()),
       ],
       child: MaterialApp(
         home: SignInPage(),
