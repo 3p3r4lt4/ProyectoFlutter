@@ -33,6 +33,8 @@ dependencies:
   equatable: ^2.0.3
   #di
   provider: ^6.0.2
+  get_it: ^7.2.0
+  #svg
   flutter_svg: ^1.0.3
   # create and view pdf document
   pdf: ^3.7.1
