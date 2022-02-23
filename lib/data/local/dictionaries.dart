@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart' show Icons;
+
 import 'package:flxtech/core/env/environment.dart';
 import 'package:flxtech/generated/l10n.dart';
   
@@ -5,6 +7,7 @@ S _l10n = S.current;
   //* Discounts feed in percentage bag of minutes
   // 3%	4%	5%	7%	8%	9%	10%	11%	12%	13%	15%	20%
 
+///* Feat Quoter
 Map<String, double>  percentageDiscountMap = {
   '0': 0.03,
   '1': 0.04,
@@ -83,5 +86,26 @@ Map<String, Map<String, dynamic>> serverWithFeedMap = {
   'additional_channels': {
     'name': _l10n.numberOfAdditionalChannels,
     'feed': QUANTITY_CHANNELS_ADDITIONAL_PRICE
+  },
+};
+
+///* Feature Pages 
+//* pages items bottom bar
+Map<String, dynamic> pagesItemBarMap = {
+  _l10n.quoter: {
+    'title': _l10n.quoter,
+    'icon': Icons.fact_check_outlined
+  },
+  _l10n.clients: {
+    'title': _l10n.clients,
+    'icon': Icons.people_outline_outlined
+  },
+  _l10n.servers: {
+    'title': _l10n.servers,
+    'icon': Icons.electrical_services_outlined
+  },
+  _l10n.contact: {
+    'title': _l10n.contact,
+    'icon': Icons.quick_contacts_dialer_outlined
   },
 };
