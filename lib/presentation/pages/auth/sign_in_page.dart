@@ -19,7 +19,7 @@ class SignInPage extends StatelessWidget {
     final S l10n = S.current;
     return ScaffoldContainer(
       l10n.signIn,
-      isWavefooter: true,
+      isWaveFooter: true,
       body: Container(
         height: MediaQuery.of(context).size.height * 0.7,
         child: Column(
