@@ -16,7 +16,7 @@ class AuthController extends ChangeNotifier {
     WidgetsBinding.instance!.addPostFrameCallback((_) {
       Navigator.pushNamedAndRemoveUntil(
       context,
-      Routes.QUOTER,
+      Routes.MENU,
       (_) => false,
       );
     });
