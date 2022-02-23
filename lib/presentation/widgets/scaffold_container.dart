@@ -13,10 +13,10 @@ class ScaffoldContainer extends StatelessWidget {
     this.rightPressed,
     this.haveReturn = true,
     this.colorAppBar = purpleColor,
-    this.toltip = 'help',
+    this.tolTip = 'help',
     this.rightIcon = Icons.help_outline_rounded,
     this.titleColor = whiteColor,
-    this.isWavefooter = false,
+    this.isWaveFooter = false,
     required this.body,
   });
   final bool isCustomAppBar;
@@ -25,12 +25,12 @@ class ScaffoldContainer extends StatelessWidget {
   final bool haveReturn;
   final String title;
   final Color colorAppBar;
-  final String toltip;
+  final String tolTip;
   final IconData rightIcon;
   final Color titleColor;
   final double barHeight = BAR_HEIGHT;
   final Widget body;
-  final bool isWavefooter;
+  final bool isWaveFooter;
 
   PreferredSize _buildCustomAppBar(BuildContext context) {
     final double heightStatusBar = MediaQuery.of(context).padding.top;
@@ -65,7 +65,7 @@ class ScaffoldContainer extends StatelessWidget {
                   child: IconButton(
                     icon: Icon(rightIcon, color: titleColor),
                     onPressed: rightPressed,
-                    tooltip: toltip,
+                    tooltip: tolTip,
                   ),
                 )
               : const SizedBox(),
@@ -86,7 +86,7 @@ class ScaffoldContainer extends StatelessWidget {
                   title: title,
                   rightPressed: rightPressed,
                   haveReturn: haveReturn,
-                  toltip: toltip,
+                  tolTip: tolTip,
                 ),
                 Container(
                   padding:
@@ -96,7 +96,7 @@ class ScaffoldContainer extends StatelessWidget {
               ],
             )
           : SafeArea(
-            child: isWavefooter
+            child: isWaveFooter
               ? Container(
                 color: whiteColor,
                 height: double.maxFinite,
@@ -114,7 +114,6 @@ class ScaffoldContainer extends StatelessWidget {
 
 class _WaveFooter extends CustomPainter {
   const _WaveFooter();
-
 
   @override
   void paint(Canvas canvas, Size size) {

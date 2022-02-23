@@ -8,18 +8,18 @@ class CustomFloatingAppBar extends StatelessWidget {
     required this.title,
     this.rightPressed,
     this.haveReturn = false,
-    required this.toltip,
+    required this.tolTip,
   });
   final String title;
   final double barHeight = BAR_HEIGHT;
   final void Function()? rightPressed;
   final bool haveReturn;
-  final String toltip;
+  final String tolTip;
 
   Widget _getRightButton() => IconButton(
     icon: Icon(Icons.help_outline_rounded, color: whiteColor),
     onPressed: rightPressed,
-    tooltip: toltip,
+    tooltip: tolTip,
   );
 
   @override
