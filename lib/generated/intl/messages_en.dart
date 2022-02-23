@@ -26,7 +26,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "annexes": MessageLookupByLibrary.simpleMessage("Anexos"),
         "bagOfMinutes":
             MessageLookupByLibrary.simpleMessage("Bolsa de Minutos"),
+        "clients": MessageLookupByLibrary.simpleMessage("Clientes"),
         "consumption": MessageLookupByLibrary.simpleMessage("Consumo"),
+        "contact": MessageLookupByLibrary.simpleMessage("Contacto"),
         "destination": MessageLookupByLibrary.simpleMessage("Destino"),
         "email": MessageLookupByLibrary.simpleMessage("Correo"),
         "extraChannels": MessageLookupByLibrary.simpleMessage(

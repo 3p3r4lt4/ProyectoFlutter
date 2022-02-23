@@ -539,6 +539,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Clientes`
+  String get clients {
+    return Intl.message(
+      'Clientes',
+      name: 'clients',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Contacto`
+  String get contact {
+    return Intl.message(
+      'Contacto',
+      name: 'contact',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -47,5 +47,7 @@
     "phoneIPToInstall": "Teléfonos IP a instalar (No incluye cableado)",
     "yes": "Si",
     "no": "No",
-    "totalPerMonth": "TOTAL RENTA MENSUAL (NO inc. IGV)"
+    "totalPerMonth": "TOTAL RENTA MENSUAL (NO inc. IGV)",
+    "clients": "Clientes",
+    "contact": "Contacto"
 }
