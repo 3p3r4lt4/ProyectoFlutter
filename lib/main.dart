@@ -8,8 +8,12 @@ import 'package:flxtech/presentation/controllers/auth/auth_controller.dart';
 import 'package:flxtech/presentation/controllers/quote/quoter_controller.dart';
 import 'package:flxtech/presentation/controllers/menu/menu_controller.dart';
 import 'package:flxtech/presentation/pages/auth/sign_in_page.dart';
+import 'package:flxtech/injector_container.dart' as di;
 
-void main() => runApp(const FLXTech());
+void main() async {
+  await di.init();
+  runApp(const FLXTech());
+}
 
 class FLXTech extends StatelessWidget {
   const FLXTech();
@@ -18,9 +22,9 @@ class FLXTech extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<AuthController>(create: (_) => AuthController()),
-        ChangeNotifierProvider<QuoteController>(create: (_) => QuoteController()),
-        ChangeNotifierProvider<MenuController>(create: (_) => MenuController()),
+        ChangeNotifierProvider<AuthController>(create: (_) => di.sl<AuthController>()),
+        ChangeNotifierProvider<QuoteController>(create: (_) => di.sl<QuoteController>()),
+        ChangeNotifierProvider<MenuController>(create: (_) => di.sl<MenuController>()),
       ],
       child: MaterialApp(
         home: SignInPage(),
