@@ -3,7 +3,7 @@ import 'package:share_plus/share_plus.dart';
 
 import 'package:flxtech/generated/l10n.dart';
 import 'package:flxtech/core/env/environment.dart';
-import 'package:flxtech/data/local/dictionaries.dart';
+import 'package:flxtech/data/datasource/memory/dictionaries.dart';
 import 'package:flxtech/data/models/quoter_model.dart';
 import 'package:flxtech/core/helpers/pdf/pdf_service.dart';
 import 'package:flxtech/core/helpers/pdf/generated_pdf.dart';

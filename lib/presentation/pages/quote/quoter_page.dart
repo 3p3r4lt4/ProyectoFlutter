@@ -5,7 +5,7 @@ import 'package:flxtech/generated/l10n.dart';
 import 'package:flxtech/core/env/environment.dart';
 import 'package:flxtech/core/theme/colors_app.dart';
 import 'package:flxtech/core/values/dimensions.dart';
-import 'package:flxtech/data/local/dictionaries.dart';
+import 'package:flxtech/data/datasource/memory/dictionaries.dart';
 import 'package:flxtech/core/style/text_style_app.dart';
 import 'package:flxtech/presentation/widgets/theme_dropdown.dart';
 import 'package:flxtech/presentation/widgets/scaffold_container.dart';

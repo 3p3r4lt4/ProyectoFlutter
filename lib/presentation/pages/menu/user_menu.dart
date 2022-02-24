@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:flxtech/data/local/dictionaries.dart';
+import 'package:flxtech/data/datasource/memory/dictionaries.dart';
 import 'package:flxtech/presentation/pages/menu/menu.dart';
 import 'package:flxtech/presentation/pages/menu/pages_nav.dart';
 
