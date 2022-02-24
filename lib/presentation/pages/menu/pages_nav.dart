@@ -7,7 +7,7 @@ import 'package:flxtech/presentation/pages/contact/contact_page.dart';
 import 'package:flxtech/presentation/pages/quote/quoter_page.dart';
 import 'package:flxtech/presentation/pages/servers/servers_page.dart';
 
-class PagesNav {
+abstract class PagesNav {
   static List<Widget> listBottomNavBar() {
     return [
       const QuoterPage(),
