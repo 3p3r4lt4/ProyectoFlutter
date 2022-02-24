@@ -32,6 +32,7 @@ dependencies:
   #commons
   equatable: ^2.0.3
   #di
+  dartz: ^0.10.1
   provider: ^6.0.2
   get_it: ^7.2.0
   #svg
