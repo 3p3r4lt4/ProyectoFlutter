@@ -50,6 +50,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "needAnAccount":
             MessageLookupByLibrary.simpleMessage("Necesita una cuenta?"),
         "no": MessageLookupByLibrary.simpleMessage("No"),
+        "noRecordFound":
+            MessageLookupByLibrary.simpleMessage("No se encontraron registros"),
         "numberOfAdditionalChannels": MessageLookupByLibrary.simpleMessage(
             "Cantidad de canales adicionales"),
         "numberOfAnnexes":
@@ -78,6 +80,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Pago Recurrente / Renta Mensual"),
         "required": MessageLookupByLibrary.simpleMessage("Campo requerido"),
         "ruralLandline": MessageLookupByLibrary.simpleMessage("Fijo Rural"),
+        "seeMore": MessageLookupByLibrary.simpleMessage("Ver más"),
         "server": MessageLookupByLibrary.simpleMessage("Servidor"),
         "servers": MessageLookupByLibrary.simpleMessage("Servidores"),
         "services": MessageLookupByLibrary.simpleMessage("Servicios"),

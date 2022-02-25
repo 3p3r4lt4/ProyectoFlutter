@@ -559,6 +559,26 @@ class S {
       args: [],
     );
   }
+
+  /// `No se encontraron registros`
+  String get noRecordFound {
+    return Intl.message(
+      'No se encontraron registros',
+      name: 'noRecordFound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ver más`
+  String get seeMore {
+    return Intl.message(
+      'Ver más',
+      name: 'seeMore',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
