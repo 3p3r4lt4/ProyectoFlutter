@@ -16,9 +16,9 @@ class RouteGroupModel extends RouteGroup{
     sellCost: sellCost
   );
 
-  final int minutes;
+  final double minutes;
   final String name;
-  final int sellCost;
+  final double sellCost;
 
   factory RouteGroupModel.fromJson(Map<String, dynamic> json) => RouteGroupModel(
       minutes: json["minutes"],

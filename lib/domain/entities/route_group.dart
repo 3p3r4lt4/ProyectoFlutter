@@ -7,9 +7,9 @@ class RouteGroup extends Equatable{
     required this.sellCost,
   });
 
-  final int minutes;
+  final double minutes;
   final String name;
-  final int sellCost;
+  final double sellCost;
 
   @override
   List<Object> get props => [
