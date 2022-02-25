@@ -17,7 +17,7 @@ class PackageModel extends Package{
       sellCost: sellCost
     );
 
-    final int minutes;
+    final double minutes;
     final String offerName;
     final double sellCost;
 

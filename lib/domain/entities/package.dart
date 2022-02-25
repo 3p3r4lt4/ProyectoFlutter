@@ -8,7 +8,7 @@ class Package extends Equatable{
       required this.sellCost,
     });
 
-    final int minutes;
+    final double minutes;
     final String offerName;
     final double sellCost;
 
