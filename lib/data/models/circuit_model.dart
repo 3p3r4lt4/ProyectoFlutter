@@ -4,8 +4,8 @@ import 'package:flxtech/data/models/package_model.dart';
 import 'package:flxtech/data/models/route_group_model.dart';
 import 'package:flxtech/domain/entities/circuit.dart';
 
-Circuit packageFromJson(String str) => CircuitModel.fromJson(json.decode(str));
-String packageToJson(CircuitModel data) => json.encode(data.toJson());
+Circuit circuitFromJson(String str) => CircuitModel.fromJson(json.decode(str));
+String circuitToJson(CircuitModel data) => json.encode(data.toJson());
 
 class CircuitModel extends Circuit{
     CircuitModel({
@@ -50,7 +50,7 @@ class CircuitModel extends Circuit{
       total: total
     );
 
-    final int circuitCode;
+    final String circuitCode;
     final String circuitName;
     final String currency;
     final String currencySymbol;
