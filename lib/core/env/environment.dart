@@ -20,3 +20,5 @@ const double QUANTITY_CHANNELS_ADDITIONAL_PRICE = 5.00; //price unit S/ 5
 const double EQUIPMENT_TO_INSTALL_PRICE = 15.00; //price unit S/ 15
 const double ADDITIONAL_IP_PUBLIC_PRICE = 50.00; //price landline 50
 const String CURRENCY_TYPE = 'S/.';
+//* Feat Reports
+const int TOP_LIMIT = 4;
