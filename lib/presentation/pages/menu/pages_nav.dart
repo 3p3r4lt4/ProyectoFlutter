@@ -3,8 +3,8 @@ import 'package:flutter/widgets.dart';
 import 'package:flxtech/core/theme/colors_app.dart';
 import 'package:flxtech/core/values/dimensions.dart';
 import 'package:flxtech/presentation/pages/clients/clients_page.dart';
-import 'package:flxtech/presentation/pages/contact/contact_page.dart';
 import 'package:flxtech/presentation/pages/quote/quoter_page.dart';
+import 'package:flxtech/presentation/pages/reports/reports_page.dart';
 import 'package:flxtech/presentation/pages/servers/servers_page.dart';
 
 abstract class PagesNav {
@@ -13,7 +13,7 @@ abstract class PagesNav {
       const QuoterPage(),
       const ClientsPage(),
       const ServersPage(),
-      const ContactPage()
+      const ReportsPage()
     ];
   }
   static BottomNavigationBarItem userBarItem(IconData icon, String title) {

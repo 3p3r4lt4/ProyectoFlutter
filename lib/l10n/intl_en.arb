@@ -51,5 +51,7 @@
     "clients": "Clientes",
     "contact": "Contacto",
     "noRecordFound": "No se encontraron registros",
-    "seeMore": "Ver más"
+    "seeMore": "Ver más",
+    "code": "Código",
+    "reports": "Reportes"
 }

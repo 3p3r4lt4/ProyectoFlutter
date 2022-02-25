@@ -105,7 +105,7 @@ Map<String, dynamic> pagesItemBarMap = {
     'icon': Icons.electrical_services_outlined
   },
   _l10n.contact: {
-    'title': _l10n.contact,
-    'icon': Icons.quick_contacts_dialer_outlined
+    'title': _l10n.reports,
+    'icon': Icons.show_chart_sharp
   },
 };

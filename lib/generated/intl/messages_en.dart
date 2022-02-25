@@ -27,6 +27,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "bagOfMinutes":
             MessageLookupByLibrary.simpleMessage("Bolsa de Minutos"),
         "clients": MessageLookupByLibrary.simpleMessage("Clientes"),
+        "code": MessageLookupByLibrary.simpleMessage("Código"),
         "consumption": MessageLookupByLibrary.simpleMessage("Consumo"),
         "contact": MessageLookupByLibrary.simpleMessage("Contacto"),
         "destination": MessageLookupByLibrary.simpleMessage("Destino"),
@@ -78,6 +79,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "rates": MessageLookupByLibrary.simpleMessage("Tarifas"),
         "recurringPaymentOrMonthlyRent": MessageLookupByLibrary.simpleMessage(
             "Pago Recurrente / Renta Mensual"),
+        "reports": MessageLookupByLibrary.simpleMessage("Reportes"),
         "required": MessageLookupByLibrary.simpleMessage("Campo requerido"),
         "ruralLandline": MessageLookupByLibrary.simpleMessage("Fijo Rural"),
         "seeMore": MessageLookupByLibrary.simpleMessage("Ver más"),
