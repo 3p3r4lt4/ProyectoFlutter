@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:flxtech/core/theme/colors_app.dart';
 import 'package:flxtech/core/values/dimensions.dart';
 import 'package:flxtech/domain/entities/circuit.dart';
 import 'package:flxtech/presentation/controllers/circuit/circuits_controller.dart';
 import 'package:flxtech/presentation/widgets/cards/item_custom_row_card.dart';
+import 'package:flxtech/generated/l10n.dart';
 
 
 class ClientsListView extends StatelessWidget {
@@ -13,6 +13,7 @@ class ClientsListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final S l10n = S.current;
     return Consumer<CircuitController>(builder: (context, controller, _) {
       final fetchedCircuits = controller.fetchCircuits;
       return Expanded(
@@ -33,7 +34,7 @@ class ClientsListView extends StatelessWidget {
                             title: circuit!.organizationName,
                             isSeeMore: true,
                             iconLeft: Icons.person,
-                            iconLeftColor: primaryColor,
+                            moreText: '${l10n.code}: ${circuit.circuitCode}',
                             // rightAction: () =>
                             //     _navClientDetail(fetchedCircuits[key]!, context),
                           );
