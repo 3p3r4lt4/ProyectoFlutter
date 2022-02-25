@@ -8,19 +8,19 @@ import 'package:flxtech/domain/repositories/circuit_repository.dart';
 import 'package:flxtech/domain/entities/response/all_circuits_response.dart';
 import 'package:flxtech/data/datasource/remote/clients_remote_datasource.dart';
 
-class ClientRepositoryImpl implements ClientRepository {
-  const ClientRepositoryImpl({
+class CircuitRepositoryImpl implements CircuitRepository {
+  const CircuitRepositoryImpl({
     required this.remoteDataSource,
   });
-  final ClientsRemoteDataSource remoteDataSource;
+  final CircuitsRemoteDataSource remoteDataSource;
   @override
   Future<Either<ClientError, Map<String, Circuit>>> getAllCircuits(BeanGeneric beanGeneric) async {
-    return await remoteDataSource.getAllClientsFromDate(beanGeneric)
+    return await remoteDataSource.getAllCircuitsFromDate(beanGeneric)
       .then<Either<ClientError, Map<String, Circuit>>>((AllCircuitsResponse allCircuitsResponse) {
         if (allCircuitsResponse.circuits != null) return Right(allCircuitsResponse.circuits!);
         return Left(allCircuitsResponse.error!);
       }).catchError((error) {
-        print(error);
+          print('error implements gel all circuits $error');
       });
   }
 
