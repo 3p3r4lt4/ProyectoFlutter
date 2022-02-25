@@ -10,7 +10,7 @@ import 'package:flxtech/data/repositories/circuit_repository_impl.dart';
 import 'package:flxtech/data/datasource/remote/clients_remote_datasource.dart';
 
 import 'package:flxtech/domain/repositories/circuit_repository.dart';
-import 'package:flxtech/domain/usecase/get_circuits_all.dart';
+import 'package:flxtech/domain/usecase/get_all_circuits.dart';
 
 final sl = GetIt.instance;
 
