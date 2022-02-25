@@ -26,23 +26,23 @@ class Circuit extends Equatable{
       required this.total,
     });
 
-    final int circuitCode;
+    final String circuitCode;
     final String circuitName;
     final String currency;
     final String currencySymbol;
     final int didQuantity;
-    final int didTotal;
+    final double didTotal;
     final DateTime endDate;
     final String organizationCode;
     final String organizationName;
     final List<PackageModel> packages;
-    final int packageTime;
-    final int packageTotal;
+    final double packageTime;
+    final double packageTotal;
     final List<RouteGroupModel> routeGroups;
-    final int routeGroupTime;
-    final int routeGroupTotal;
+    final double routeGroupTime;
+    final double routeGroupTotal;
     final String startDate;
-    final int subTotal;
+    final double subTotal;
     final double tax;
     final double total;
 

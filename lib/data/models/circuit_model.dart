@@ -5,6 +5,7 @@ import 'package:flxtech/data/models/route_group_model.dart';
 import 'package:flxtech/domain/entities/circuit.dart';
 
 Circuit circuitFromJson(String str) => CircuitModel.fromJson(json.decode(str));
+Circuit circuitFromMap(Map<String, dynamic> str) => CircuitModel.fromJson(str);
 String circuitToJson(CircuitModel data) => json.encode(data.toJson());
 
 class CircuitModel extends Circuit{
@@ -55,23 +56,23 @@ class CircuitModel extends Circuit{
     final String currency;
     final String currencySymbol;
     final int didQuantity;
-    final int didTotal;
+    final double didTotal;
     final DateTime endDate;
     final String organizationCode;
     final String organizationName;
     final List<PackageModel> packages;
-    final int packageTime;
-    final int packageTotal;
+    final double packageTime;
+    final double packageTotal;
     final List<RouteGroupModel> routeGroups;
-    final int routeGroupTime;
-    final int routeGroupTotal;
+    final double routeGroupTime;
+    final double routeGroupTotal;
     final String startDate;
-    final int subTotal;
+    final double subTotal;
     final double tax;
     final double total;
 
     factory CircuitModel.fromJson(Map<String, dynamic> json) => CircuitModel(
-        circuitCode: json["circuit_code"],
+        circuitCode: json["circuit_code"].toString(),
         circuitName: json["circuit_name"],
         currency: json["currency"],
         currencySymbol: json["currency_simbol"],
@@ -80,9 +81,11 @@ class CircuitModel extends Circuit{
         endDate: DateTime.parse(json["enddate"]),
         organizationCode: json["organization_code"],
         organizationName: json["organization_name"],
-        packages: List<PackageModel>.from(json["packages"].map((x) => PackageModel.fromJson(x))),
+        // packages: [],
+        packages: json["packages"].isNotEmpty ? List<PackageModel>.from(json["packages"].map((x) => PackageModel.fromJson(x))) : [],
         packageTime: json["packagetime"],
         packageTotal: json["packagetotal"],
+        // routeGroups: [],
         routeGroups: List<RouteGroupModel>.from(json["routegroups"].map((x) => RouteGroupModel.fromJson(x))),
         routeGroupTime: json["routegrouptime"],
         routeGroupTotal: json["routegrouptotal"],
