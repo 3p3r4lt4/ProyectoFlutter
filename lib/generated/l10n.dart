@@ -649,6 +649,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Minutos total`
+  String get minutesTotal {
+    return Intl.message(
+      'Minutos total',
+      name: 'minutesTotal',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

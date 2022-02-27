@@ -58,5 +58,6 @@
     "minutes": "Minutos",
     "ruc": "R.U.C.",
     "clientsTop": "Clientes top",
-    "minutesTotalTop": "Minutos Total top"
+    "minutesTotalTop": "Minutos Total top",
+    "minutesTotal": "Minutos total"
 }

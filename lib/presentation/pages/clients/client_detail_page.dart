@@ -14,6 +14,7 @@ class ClientDetailPage extends StatelessWidget {
   final Circuit client;
 
   Widget _buildInfo(String title,String subtitle) => RichText(
+    textAlign: title.isEmpty ? TextAlign.center : TextAlign.start,
       text: TextSpan(
           text: title,
           style: TextStyleApp.b1().copyWith(
@@ -60,10 +61,10 @@ class ClientDetailPage extends StatelessWidget {
                   _buildInfo('', client.organizationName),
                   _buildInfo('${l10n.ruc} ', client.organizationCode),
                   _buildInfo('${l10n.costTotal}: ', '${client.currencySymbol} ${doubleToAsFixedDecimals(client.routeGroupTotal)}'),
+                  _buildInfo('${l10n.minutesTotal}: ', '${doubleToAsFixedDecimals(client.routeGroupTime)}\''),
                 ],
               ),
             ),
-            // IconTitle(Icons.person, color: purpleColor, borderColor: purpleColor),
             Expanded(
               child: Container(
                 margin:
