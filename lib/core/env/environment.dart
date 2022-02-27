@@ -1,6 +1,8 @@
 ///* App feature
 const String URI_BASE = "http://202201.api.asterisk360.com/softswitch-api/v3/";
-
+const String URI_BASE_DYNAMIC = ".api.asterisk360.com/softswitch-api/v3/";
+const int LAST_MONTH_OF_THE_YEAR = 12;
+const int FIRST_MONTH_OF_THE_YEAR = 1;
 //*Ui
 const double WIDTH_DROPDOWN = 12;
 const double HEIGHT_DROPDOWN = 12;

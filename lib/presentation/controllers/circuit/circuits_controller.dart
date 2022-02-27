@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
+import 'package:intl/intl.dart';
 
 import 'package:flxtech/core/env/environment.dart';
 import 'package:flxtech/core/helpers/double_to_as_fixed_decimals.dart';
@@ -23,7 +24,8 @@ class CircuitController extends ChangeNotifier {
   bool isLoading = false;
   List<CustomItemChart> subTotalsTop = [];
   List<CustomItemChart> totalsMinutes = [];
-  DateTime date = DateTime.now();
+  DateTime currentDate = DateTime.now();
+  DateFormat _dateFormat = DateFormat('MM');
 
   /// * get all Clients
   Future<Null> loadAllCircuits(BuildContext context) async {
@@ -32,8 +34,19 @@ class CircuitController extends ChangeNotifier {
     // show loading
     isLoading = true;
     notifyListeners();
+    // use the previous month
+    final bool _isFirstMonthOfTheYear = currentDate.month == FIRST_MONTH_OF_THE_YEAR;
+    final DateTime date = DateTime(
+      _isFirstMonthOfTheYear
+        ? currentDate.year - 1 
+        : currentDate.year,
+      _isFirstMonthOfTheYear
+        ? LAST_MONTH_OF_THE_YEAR
+        : currentDate.month - 1,
+    );
+    String stringDateMonth = _dateFormat.format(date);
     // Fetch the list
-    final result = await _getCircuitsAll.call(BeanGeneric(year: date.year.toString(), month: date.month.toString()));
+    final result = await _getCircuitsAll.call(BeanGeneric(year: date.year.toString(), month: stringDateMonth));
     // Handle success or error
     result.fold(
       (e) {
