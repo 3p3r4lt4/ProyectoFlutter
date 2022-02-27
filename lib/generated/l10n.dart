@@ -579,6 +579,56 @@ class S {
       args: [],
     );
   }
+
+  /// `Nombre`
+  String get name {
+    return Intl.message(
+      'Nombre',
+      name: 'name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Costo`
+  String get cost {
+    return Intl.message(
+      'Costo',
+      name: 'cost',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Costo total`
+  String get costTotal {
+    return Intl.message(
+      'Costo total',
+      name: 'costTotal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Minutos`
+  String get minutes {
+    return Intl.message(
+      'Minutos',
+      name: 'minutes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `R.U.C.`
+  String get ruc {
+    return Intl.message(
+      'R.U.C.',
+      name: 'ruc',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

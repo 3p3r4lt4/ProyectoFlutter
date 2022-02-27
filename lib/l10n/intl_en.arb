@@ -51,5 +51,10 @@
     "noRecordFound": "No se encontraron registros",
     "seeMore": "Ver más",
     "code": "Código",
-    "reports": "Reportes"
+    "reports": "Reportes",
+    "name": "Nombre",
+    "cost": "Costo",
+    "costTotal": "Costo total",
+    "minutes": "Minutos",
+    "ruc": "R.U.C."
 }

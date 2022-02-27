@@ -30,6 +30,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "code": MessageLookupByLibrary.simpleMessage("Código"),
         "consumption": MessageLookupByLibrary.simpleMessage("Consumo"),
         "contact": MessageLookupByLibrary.simpleMessage("Contacto"),
+        "cost": MessageLookupByLibrary.simpleMessage("Costo"),
+        "costTotal": MessageLookupByLibrary.simpleMessage("Costo total"),
         "destination": MessageLookupByLibrary.simpleMessage("Destino"),
         "email": MessageLookupByLibrary.simpleMessage("Correo"),
         "extraChannels": MessageLookupByLibrary.simpleMessage(
@@ -44,8 +46,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "ldi5": MessageLookupByLibrary.simpleMessage("LDi5"),
         "ldiSpecial": MessageLookupByLibrary.simpleMessage("LDi Especial"),
         "localLandline": MessageLookupByLibrary.simpleMessage("Fijo Local"),
+        "minutes": MessageLookupByLibrary.simpleMessage("Minutos"),
         "mobiles": MessageLookupByLibrary.simpleMessage("Móviles"),
         "myQuoter": MessageLookupByLibrary.simpleMessage("Mi Cotizador"),
+        "name": MessageLookupByLibrary.simpleMessage("Nombre"),
         "nationalLandline":
             MessageLookupByLibrary.simpleMessage("Fijo Nacional"),
         "needAnAccount":
@@ -81,6 +85,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Pago Recurrente / Renta Mensual"),
         "reports": MessageLookupByLibrary.simpleMessage("Reportes"),
         "required": MessageLookupByLibrary.simpleMessage("Campo requerido"),
+        "ruc": MessageLookupByLibrary.simpleMessage("R.U.C."),
         "ruralLandline": MessageLookupByLibrary.simpleMessage("Fijo Rural"),
         "seeMore": MessageLookupByLibrary.simpleMessage("Ver más"),
         "services": MessageLookupByLibrary.simpleMessage("Servicios"),
