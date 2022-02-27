@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:flxtech/presentation/pages/clients/client_detail_page.dart';
 import 'package:flxtech/core/values/dimensions.dart';
 import 'package:flxtech/domain/entities/circuit.dart';
 import 'package:flxtech/presentation/controllers/circuit/circuits_controller.dart';
@@ -39,7 +38,7 @@ class ClientsListView extends StatelessWidget {
                               iconLeft: Icons.person,
                               moreText: '${l10n.code}: ${circuit.circuitCode}',
                               rightAction: () =>
-                                  _navClientDetail(fetchedCircuits[key]!, context),
+                                  controller.handleNavToClientDetail(fetchedCircuits[key]!, context),
                             );
                         }),
                       ),
@@ -52,9 +51,4 @@ class ClientsListView extends StatelessWidget {
     });
   }
 
-  void _navClientDetail(Circuit circuit, BuildContext context) {
-    Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-      return ClientDetailPage(circuit);
-    }));
-  }
 }

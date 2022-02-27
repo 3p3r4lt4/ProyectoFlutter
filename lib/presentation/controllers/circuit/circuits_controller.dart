@@ -9,6 +9,7 @@ import 'package:flxtech/domain/entities/circuit.dart';
 import 'package:flxtech/domain/entities/custom_item_chart.dart';
 import 'package:flxtech/domain/entities/request/bean_generic.dart';
 import 'package:flxtech/domain/usecase/get_all_circuits.dart';
+import 'package:flxtech/presentation/pages/clients/client_detail_page.dart';
 
 class CircuitController extends ChangeNotifier {
   CircuitController({
@@ -17,6 +18,12 @@ class CircuitController extends ChangeNotifier {
 
   final GetCircuitsAll _getCircuitsAll;
 
+  //* Clients detail
+  void handleNavToClientDetail(Circuit circuit, BuildContext context) {
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+      return ClientDetailPage(circuit);
+    }));
+  }
 
   Map<String, Circuit> fetchCircuits = Map<String, Circuit>();
   String errorMessage = '';
