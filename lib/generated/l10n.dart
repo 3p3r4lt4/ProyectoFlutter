@@ -659,6 +659,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Leyenda`
+  String get legend {
+    return Intl.message(
+      'Leyenda',
+      name: 'legend',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

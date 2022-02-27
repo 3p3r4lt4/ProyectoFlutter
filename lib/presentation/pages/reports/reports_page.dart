@@ -41,7 +41,7 @@ class ReportsPage extends StatelessWidget {
             Consumer<CircuitController>(
               builder: (context, controller, _) {
                 return controller.totalsMinutes.isNotEmpty
-                  ? TopCharts(controller.totalsMinutes, chartKey: l10n.minutesTotalTop)
+                  ? TopCharts(controller.totalsMinutes, chartKey: l10n.minutesTotalTop, isChartMinutes: true,)
                   : const SizedBox();
               }
             ),

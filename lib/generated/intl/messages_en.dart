@@ -46,6 +46,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "ldi4": MessageLookupByLibrary.simpleMessage("LDi4"),
         "ldi5": MessageLookupByLibrary.simpleMessage("LDi5"),
         "ldiSpecial": MessageLookupByLibrary.simpleMessage("LDi Especial"),
+        "legend": MessageLookupByLibrary.simpleMessage("Leyenda"),
         "localLandline": MessageLookupByLibrary.simpleMessage("Fijo Local"),
         "minutes": MessageLookupByLibrary.simpleMessage("Minutos"),
         "minutesTotal": MessageLookupByLibrary.simpleMessage("Minutos total"),

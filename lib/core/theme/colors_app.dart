@@ -12,6 +12,7 @@ const Color tealColor = Color(0xFF20c997);
 const Color cyanColor = Color(0xFF17a2b8);
 const Color whiteColor = Color(0xFFffffff);
 const Color grayColor = Color(0xFF6c757d);
+const Color grayLightColor = Color(0xffA7A7A7);
 const Color grayDarkColor = Color(0xFF343a40);
 const Color primaryColor = Color(0xFF007bff);
 const Color secondaryColor = Color(0xFF6c757d);
