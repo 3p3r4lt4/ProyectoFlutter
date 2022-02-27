@@ -19,6 +19,7 @@ class ItemRowCustomCard extends StatelessWidget {
     this.iconLeftColor = purpleColor,
     this.isSeeMore = false,
     this.moreText,
+    this.subTitle,
   });
 
   final Color? backgroundColor;
@@ -32,12 +33,27 @@ class ItemRowCustomCard extends StatelessWidget {
   final Color iconLeftColor;
   final bool isSeeMore;
   final String? moreText;
+  final String? subTitle;
 
   Widget _buildTitle() {
     return Expanded(
+      child: Container(
+        margin: const EdgeInsets.symmetric(vertical: MARGIN_SIZE_EXTRA_SMALL),
+        child: Text(
+          title,
+          style: TextStyleApp.b2(),
+        ),
+      ),
+    );
+  }
+  Widget _buildSubTitle() {
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: MARGIN_SIZE_EXTRA_SMALL),
       child: Text(
-        title,
-        style: TextStyleApp.b1(),
+        subTitle!,
+        style: TextStyleApp.caption().copyWith(
+          color: grayColor,
+        )
       ),
     );
   }
@@ -71,7 +87,19 @@ class ItemRowCustomCard extends StatelessWidget {
                             child: Icon(iconLeft, color: iconLeftColor)
                           )
                           : const SizedBox(width: MARGIN_SIZE_DEFAULT),
-                        contentWidget ?? _buildTitle(),
+                        Expanded(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              contentWidget 
+                                ?? _buildTitle(),
+                              subTitle != null
+                                ? _buildSubTitle()
+                                : const SizedBox(),
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   ),
