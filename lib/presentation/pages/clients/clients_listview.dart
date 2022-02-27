@@ -15,7 +15,8 @@ class ClientsListView extends StatelessWidget {
   Widget build(BuildContext context) {
     final S l10n = S.current;
     return Consumer<CircuitController>(builder: (context, controller, _) {
-      final fetchedCircuits = controller.fetchCircuits;
+      Map<String, Circuit> fetchedCircuits = controller.fetchCircuits;
+      fetchedCircuits.removeWhere((_, Circuit circuit) => circuit.routeGroupTotal == 0);
       return Expanded(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
@@ -31,13 +32,13 @@ class ClientsListView extends StatelessWidget {
                           String key = fetchedCircuits.keys.elementAt(index);
                           Circuit? circuit = fetchedCircuits[key];
                           return ItemRowCustomCard(
-                            title: circuit!.organizationName,
-                            isSeeMore: true,
-                            iconLeft: Icons.person,
-                            moreText: '${l10n.code}: ${circuit.circuitCode}',
-                            // rightAction: () =>
-                            //     _navClientDetail(fetchedCircuits[key]!, context),
-                          );
+                              title: circuit!.organizationName,
+                              isSeeMore: true,
+                              iconLeft: Icons.person,
+                              moreText: '${l10n.code}: ${circuit.circuitCode}',
+                              // rightAction: () =>
+                              //     _navClientDetail(fetchedCircuits[key]!, context),
+                            );
                         }),
                       ),
                       const SizedBox(height: MARGIN_SIZE_DEFAULT),
