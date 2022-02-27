@@ -8,7 +8,11 @@ import 'package:flxtech/presentation/controllers/quote/quoter_controller.dart';
 
 class AuthController extends ChangeNotifier {
 
+  bool isLoading = false;
+
   void handleSignIn(BuildContext context) async {
+    isLoading = true;
+    notifyListeners();
       context.read<QuoteController>().loadQuantityFeedMap();
       context.read<QuoteController>().loadRangeFeedMap();
       context.read<QuoteController>().loadBagOfMinutesQuoteInitial();
@@ -24,6 +28,7 @@ class AuthController extends ChangeNotifier {
       (_) => false,
       );
     });
+    isLoading = false;
     notifyListeners();
   }
 

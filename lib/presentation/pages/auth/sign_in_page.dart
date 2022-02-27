@@ -42,10 +42,13 @@ class SignInPage extends StatelessWidget {
             ),
             Expanded(child: const SizedBox()),
             Consumer<AuthController>(
-              builder: (context, controller, _) => ThemeButton(
-                  onPress: () => controller.handleSignIn(context),
-                  title: l10n.signIn,
-                ),
+              builder: (context, controller, _) 
+                => !controller.isLoading
+                  ? ThemeButton(
+                      onPress: () => controller.handleSignIn(context),
+                      title: l10n.signIn,
+                    )
+                  : const CircularProgressIndicator(color: purpleColor),
             ),
             Expanded(child: const SizedBox()),
             Container(
