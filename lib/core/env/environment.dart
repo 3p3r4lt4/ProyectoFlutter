@@ -9,6 +9,7 @@ const double HEIGHT_DROPDOWN = 12;
 const double HEIGHT_DATA_ROW = 40;
 const double WIDTH_ICON_BUTTON = 35;
 const double WIDTH_SHORT_TEXT_FORM = 90;
+const double HEIGHT_CHART_CARD = 400;
 //*Feat Quoter
 const double MAX_DISCOUNT_RANGE = 0.2; //20%
 const double MAX_DISCOUNT_RANGE_VALUE = 0.8; //80%
