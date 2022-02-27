@@ -83,8 +83,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "required": MessageLookupByLibrary.simpleMessage("Campo requerido"),
         "ruralLandline": MessageLookupByLibrary.simpleMessage("Fijo Rural"),
         "seeMore": MessageLookupByLibrary.simpleMessage("Ver más"),
-        "server": MessageLookupByLibrary.simpleMessage("Servidor"),
-        "servers": MessageLookupByLibrary.simpleMessage("Servidores"),
         "services": MessageLookupByLibrary.simpleMessage("Servicios"),
         "signIn": MessageLookupByLibrary.simpleMessage("Login"),
         "signUp": MessageLookupByLibrary.simpleMessage("Sign up"),

@@ -11,10 +11,10 @@ class ServersPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final S l10n = S.current;
     return ScaffoldContainer(
-      l10n.servers,
+      l10n.services,
       body: Center(
         child: Text(
-          l10n.servers,
+          l10n.services,
           style: TextStyleApp.b1(),
         ),
       ),

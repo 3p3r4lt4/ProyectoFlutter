@@ -22,6 +22,7 @@ class CircuitsRemoteDataSourceImpl implements CircuitsRemoteDataSource {
   @override
   Future<AllCircuitsResponseModel> getAllCircuitsFromDate(BeanGeneric beanGeneric) async {
   return await getFunction(
+      // 'http://${beanGeneric.year}${beanGeneric.month}$URI_BASE_DYNAMIC/report/outbound/calldetail/json?year=${beanGeneric.year}&month=${beanGeneric.month}&circuitcode=${beanGeneric.circuitCode ?? ''}',
       '$URI_BASE/report/outbound/calldetail/json?year=${beanGeneric.year}&month=${beanGeneric.month}&circuitcode=${beanGeneric.circuitCode ?? ''}',
       {
         'Content-Type': 'application/json',

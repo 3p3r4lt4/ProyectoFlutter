@@ -111,7 +111,7 @@ class QuoterPage extends StatelessWidget {
           Column(
             children: [
               Consumer<QuoteController>(
-                builder: (context, controller, _) => _TitleQuoterItem(l10n.servers,isHide: controller.isHideServers,handleAction: () => controller.showOrHideServices())
+                builder: (context, controller, _) => _TitleQuoterItem(l10n.services,isHide: controller.isHideServers,handleAction: () => controller.showOrHideServices())
               ),
               Consumer<QuoteController>(
                 builder: (context, controller, _) 

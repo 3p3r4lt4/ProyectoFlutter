@@ -100,8 +100,8 @@ Map<String, dynamic> pagesItemBarMap = {
     'title': _l10n.clients,
     'icon': Icons.people_outline_outlined
   },
-  _l10n.servers: {
-    'title': _l10n.servers,
+  _l10n.services: {
+    'title': _l10n.services,
     'icon': Icons.electrical_services_outlined
   },
   _l10n.contact: {
