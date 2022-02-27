@@ -22,7 +22,7 @@ class CircuitController extends ChangeNotifier {
   String errorMessage = '';
   int fetchCircuitsLength = 0;
   bool isLoading = false;
-  List<CustomItemChart> subTotalsTop = [];
+  List<CustomItemChart> routeGroupsTop = [];
   List<CustomItemChart> totalsMinutes = [];
   DateTime currentDate = DateTime.now();
   DateFormat _dateFormat = DateFormat('MM');
@@ -64,15 +64,15 @@ class CircuitController extends ChangeNotifier {
   }
 
   void calculateSubTotalTop() {
-    final List<Circuit> circuitsTopSubTotalList = [];
+    final List<Circuit> routeGroupsTotalList = [];
     // covert map to list
-    fetchCircuits.forEach((_, value) => circuitsTopSubTotalList.add(value));
+    fetchCircuits.forEach((_, value) => routeGroupsTotalList.add(value));
     // sort with compare to, reverse to return max to min
-    circuitsTopSubTotalList.sort((prev, next) => next.subTotal.compareTo(prev.subTotal));
+    routeGroupsTotalList.sort((prev, next) => next.routeGroupTotal.compareTo(prev.routeGroupTotal));
     for (var i = 0; i < TOP_LIMIT; i++) {
-      subTotalsTop.add(CustomItemChart(
-        bottom: 'S/.${doubleToAsFixedDecimals(circuitsTopSubTotalList[i].subTotal)}', 
-        item: circuitsTopSubTotalList[i].subTotal, 
+      routeGroupsTop.add(CustomItemChart(
+        bottom: 'S/.${doubleToAsFixedDecimals(routeGroupsTotalList[i].routeGroupTotal)}', 
+        item: routeGroupsTotalList[i].subTotal, 
         barColor: charts.ColorUtil.fromDartColor(purpleColor.withOpacity(i == 0 ? 1 : 1/i)),
         ),
       );

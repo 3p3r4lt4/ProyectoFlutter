@@ -18,11 +18,6 @@ class ReportsPage extends StatelessWidget {
       l10n.reports,
       haveReturn: false,
       isCustomAppBar: true,
-      rightIcon: Icons.show_chart_rounded,
-      rightPressed: () {
-        context.read<CircuitController>().calculateSubTotalTop();
-        context.read<CircuitController>().calculateTotalMinutesTop();
-      },
       body: Container(
         margin: const EdgeInsets.only(
           left: MARGIN_SIZE_DEFAULT,
@@ -35,8 +30,8 @@ class ReportsPage extends StatelessWidget {
 
             Consumer<CircuitController>(
               builder: (context, controller, _) {
-                return controller.subTotalsTop.isNotEmpty
-                  ? TopCharts(controller.subTotalsTop, chartKey: 'Sub Total S/. Top')
+                return controller.routeGroupsTop.isNotEmpty
+                  ? TopCharts(controller.routeGroupsTop, chartKey: l10n.clientsTop)
                   : const SizedBox();
               }
             ),
@@ -46,7 +41,7 @@ class ReportsPage extends StatelessWidget {
             Consumer<CircuitController>(
               builder: (context, controller, _) {
                 return controller.totalsMinutes.isNotEmpty
-                  ? TopCharts(controller.totalsMinutes, chartKey: 'Minutos Total top')
+                  ? TopCharts(controller.totalsMinutes, chartKey: l10n.minutesTotalTop)
                   : const SizedBox();
               }
             ),

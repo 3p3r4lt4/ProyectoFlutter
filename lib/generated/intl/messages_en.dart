@@ -27,6 +27,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "bagOfMinutes":
             MessageLookupByLibrary.simpleMessage("Bolsa de Minutos"),
         "clients": MessageLookupByLibrary.simpleMessage("Clientes"),
+        "clientsTop": MessageLookupByLibrary.simpleMessage("Clientes top"),
         "code": MessageLookupByLibrary.simpleMessage("Código"),
         "consumption": MessageLookupByLibrary.simpleMessage("Consumo"),
         "contact": MessageLookupByLibrary.simpleMessage("Contacto"),
@@ -47,6 +48,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "ldiSpecial": MessageLookupByLibrary.simpleMessage("LDi Especial"),
         "localLandline": MessageLookupByLibrary.simpleMessage("Fijo Local"),
         "minutes": MessageLookupByLibrary.simpleMessage("Minutos"),
+        "minutesTotalTop":
+            MessageLookupByLibrary.simpleMessage("Minutos Total top"),
         "mobiles": MessageLookupByLibrary.simpleMessage("Móviles"),
         "myQuoter": MessageLookupByLibrary.simpleMessage("Mi Cotizador"),
         "name": MessageLookupByLibrary.simpleMessage("Nombre"),

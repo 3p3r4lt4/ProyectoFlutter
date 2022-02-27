@@ -629,6 +629,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Clientes top`
+  String get clientsTop {
+    return Intl.message(
+      'Clientes top',
+      name: 'clientsTop',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Minutos Total top`
+  String get minutesTotalTop {
+    return Intl.message(
+      'Minutos Total top',
+      name: 'minutesTotalTop',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
