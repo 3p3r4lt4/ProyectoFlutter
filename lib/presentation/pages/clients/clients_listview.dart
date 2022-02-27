@@ -34,6 +34,7 @@ class ClientsListView extends StatelessWidget {
                           Circuit? circuit = fetchedCircuits[key];
                           return ItemRowCustomCard(
                               title: circuit!.organizationName,
+                              subTitle: '${l10n.ruc} ${circuit.organizationCode}',
                               isSeeMore: true,
                               iconLeft: Icons.person,
                               moreText: '${l10n.code}: ${circuit.circuitCode}',
