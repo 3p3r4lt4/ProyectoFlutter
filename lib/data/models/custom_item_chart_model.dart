@@ -1,17 +1,19 @@
 import 'package:charts_flutter/flutter.dart' as charts;
+
+import 'package:flxtech/domain/entities/circuit.dart';
 import 'package:flxtech/domain/entities/custom_item_chart.dart';
 
 class CustomItemChartModel extends CustomItemChart {
   const CustomItemChartModel({
-    required this.bottom,
+    required this.circuit,
     required this.item,
     required this.barColor,
   }): super(
-    bottom: bottom,
+    circuit: circuit,
     item: item,
     barColor: barColor
   );
-  final String bottom;
+  final Circuit circuit;
   final double item;
   final charts.Color barColor;
 }

@@ -3,7 +3,6 @@ import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:intl/intl.dart';
 
 import 'package:flxtech/core/env/environment.dart';
-import 'package:flxtech/core/helpers/double_to_as_fixed_decimals.dart';
 import 'package:flxtech/core/theme/colors_app.dart';
 import 'package:flxtech/domain/entities/circuit.dart';
 import 'package:flxtech/domain/entities/custom_item_chart.dart';
@@ -78,8 +77,8 @@ class CircuitController extends ChangeNotifier {
     routeGroupsTotalList.sort((prev, next) => next.routeGroupTotal.compareTo(prev.routeGroupTotal));
     for (var i = 0; i < TOP_LIMIT; i++) {
       routeGroupsTop.add(CustomItemChart(
-        bottom: 'S/.${doubleToAsFixedDecimals(routeGroupsTotalList[i].routeGroupTotal)}', 
-        item: routeGroupsTotalList[i].subTotal, 
+        circuit: routeGroupsTotalList[i], 
+        item: routeGroupsTotalList[i].routeGroupTotal, 
         barColor: charts.ColorUtil.fromDartColor(purpleColor.withOpacity(i == 0 ? 1 : 1/i)),
         ),
       );
@@ -95,7 +94,7 @@ class CircuitController extends ChangeNotifier {
     minutesTopTotalList.sort((prev, next) => next.routeGroupTime.compareTo(prev.routeGroupTime));
     for (var i = 0; i < TOP_LIMIT; i++) {
       totalsMinutes.add(CustomItemChart(
-        bottom: '${doubleToAsFixedDecimals(minutesTopTotalList[i].routeGroupTime)}\'', 
+        circuit: minutesTopTotalList[i], 
         item: minutesTopTotalList[i].routeGroupTime, 
         barColor: charts.ColorUtil.fromDartColor(purpleColor.withOpacity(i == 0 ? 1 : 1/i)),
         ),
