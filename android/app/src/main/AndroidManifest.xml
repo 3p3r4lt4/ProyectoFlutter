@@ -2,7 +2,7 @@
     package="pe.fiberlux.flxtech">
     <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="flxtech"
+        android:label="AppFiberlux"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
