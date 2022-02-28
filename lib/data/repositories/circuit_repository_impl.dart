@@ -26,7 +26,6 @@ class CircuitRepositoryImpl implements CircuitRepository {
 
   @override
   Future<Either<ClientError, Map<String, Call>>> getCircuitCalls(BeanGeneric bean) {
-    // TODO: implement getCircuitCalls
     throw UnimplementedError();
   }
 
